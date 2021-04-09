@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 // import ProductList from "../../components/ProductList";
 
 export const Container = styled.div`
-  height: 100% !important;
+  height: 100vh;
   padding-top: 2.54rem;
 `;
 
@@ -171,7 +171,7 @@ export const Content = styled.div`
         background: transparent;
       }
 
-      @media screen and (max-width: 550px){
+      @media screen and (max-width: 550px) {
         color: var(--color-light);
         background: transparent;
       }
