@@ -1,5 +1,10 @@
-const withImages = require('next-images')
+module.exports = {
+  webpack(config, options) {
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"]
+    });
 
-module.exports = withImages({
-  esModule: true,
-})
+    return config;
+  }
+};
