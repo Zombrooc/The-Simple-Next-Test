@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { MdClose, MdMenu } from "react-icons/md";
-import { signIn, signOut, useSession } from "next-auth/client";
-// import Cookies from "universal-cookie";
 
 import useWindowSize from "../useWindowSize.js";
 
@@ -17,12 +15,6 @@ import {
 } from "./styles";
 
 function Navbar() {
-  // const cookies = new Cookies();
-
-  // const [isLogged, setLoggedIn] = useState(localStorage.getItem('isLogged'));
-
-  const [session, loading] = useSession();
-
   const [menuStatus, setMenuStatus] = useState(false);
 
   const size = useWindowSize();
@@ -37,28 +29,13 @@ function Navbar() {
     }
   }, [size.width]);
 
-  // const logout = () => {
-  //   cookies.remove("accessToken");
-  //   cookies.remove("userID");
-  //   cookies.remove("name");
-  //   localStorage.setItem("isLogged", false);
-
-  //   setLoggedIn("false");
-
-  //   setMenuStatus(false);
-
-  //   return;
-  // };
-
   return (
     <Nav>
       <Container>
         <Title>
           <Link href="/">
             <a>
-              <p>
-                The Simple <span>TECH</span>
-              </p>
+              <p>Your Brand</p>
             </a>
           </Link>
         </Title>
@@ -69,62 +46,14 @@ function Navbar() {
           <CloseIcon isOpen={menuStatus} onClick={menuHandler}>
             <MdClose />
           </CloseIcon>
-          {!session && (
-            <>
-              <MenuItem>
-                <Link href="/signin">
-                  <a> Entrar </a>
-                </Link>
-              </MenuItem>
-              <MenuItem>
-                <Link href="signup">
-                  <a className="active signup">Cadastrar</a>
-                </Link>
-              </MenuItem>
-            </>
-          )}
-          {session && (
-            <>
-              <MenuItem>
-                <Link href="/profile">
-                  <a>
-                    <span className="username">{session.user.name}</span>
-                  </a>
-                </Link>
-              </MenuItem>
-              <MenuItem>
-                <button onClick={() => signOut()}>Sair</button>
-              </MenuItem>
-            </>
-          )}
-          {/* {isLogged === "false" || isLogged === null ? (
-            <>
-              <MenuItem>
-                <Link href="/signin"><a> Entrar </a></Link>
-              </MenuItem>
-              <MenuItem>
-                <Link href="/signup">
-                  <a className="active signup">Cadastrar</a>
-                </Link>
-              </MenuItem>
-            </>
-          ) : (
-            <>
-              <MenuItem>
-                <Link href="/profile">
-                  <a><span className="username">{cookies.get("name") || ""}</span></a>
-                </Link>
-              </MenuItem>
-              <MenuItem>
-                <button onClick={logout}>
-                  Sair
-                </button>
-              </MenuItem>
-            </>
-          )} */}
+          <MenuItem>
+            <Link href="/profile">
+              <a>First Option</a>
+            </Link>
+          </MenuItem>
           <MenuItem>
             <Link href="/request-assistence">
-              <a className="active">Solicitar Assistêcia</a>
+              <a className="active">Second Option</a>
             </Link>
           </MenuItem>
         </Menu>
