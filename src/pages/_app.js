@@ -9,7 +9,7 @@ export function reportWebVitals(){
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'GA_MEASUREMENT_ID');
+  gtag('config', '244600255');
 }
 
 function MyApp({ Component, pageProps }) {
