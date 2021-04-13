@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
+import Link from 'next/link';
 import { MdClose, MdMenu } from "react-icons/md";
 
 import useWindowSize from "../useWindowSize.js";
@@ -35,7 +35,9 @@ function Navbar() {
         <Title>
           <Link href="/">
             <a>
-              <p>Your Brand</p>
+              <p>
+                The Simple <span>TECH</span>
+              </p>
             </a>
           </Link>
         </Title>
@@ -47,13 +49,8 @@ function Navbar() {
             <MdClose />
           </CloseIcon>
           <MenuItem>
-            <Link href="/profile">
-              <a>First Option</a>
-            </Link>
-          </MenuItem>
-          <MenuItem>
             <Link href="/request-assistence">
-              <a className="active">Second Option</a>
+              <a className="active">Solicitar Assistêcia</a>
             </Link>
           </MenuItem>
         </Menu>

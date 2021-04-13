@@ -34,6 +34,7 @@ export const Container = styled.div`
 export const Title = styled.div`
   font-style: italic;
   font-size: 1.5rem;
+  font-family: "Pacifico";
   font-weight: 100;
 
   a {
@@ -43,6 +44,10 @@ export const Title = styled.div`
   p {
     margin: 0 !important;
     line-height: 0 !important;
+
+    span {
+      font-family: "JetBrains Mono" !important;
+    }
   }
 
   @media screen and (max-width: 961px) {
@@ -75,6 +80,10 @@ export const Menu = styled.div`
 
     a {
       color: #fff;
+    }
+
+    span.username {
+      margin: 0 !important;
     }
   }
 `;
@@ -113,6 +122,18 @@ export const MenuItem = styled.div`
       color: var(--color-light) !important;
       border-radius: 7px;
       border: 1px solid var(--color-danger);
+
+      &.signup {
+        background: var(--color-light);
+        border: 1px solid currentColor;
+
+        color: var(--color-dark) !important;
+
+        &:hover {
+          background: transparent;
+          color: var(--color-light) !important;
+        }
+      }
 
       &:hover {
         background: transparent;

@@ -43,9 +43,7 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
 
-  html,
-  body,
-  #root {
+  html, body, #__next {
     min-height: 100%;
     height: 100%;
     text-rendering: optimizeLegibility;
