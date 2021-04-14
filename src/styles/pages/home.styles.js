@@ -13,7 +13,6 @@ export const CardContainer = styled.div`
   align-items: center;
   padding: 50px;
 
-  
   .container {
     width: 100%;
     position: relative;

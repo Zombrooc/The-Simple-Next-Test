@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Link from 'next/link';
+import { signIn, signOut, useSession } from "next-auth/client";
+import Link from "next/link";
 import { MdClose, MdMenu } from "react-icons/md";
 
 import useWindowSize from "../useWindowSize.js";
@@ -16,6 +17,9 @@ import {
 
 function Navbar() {
   const [menuStatus, setMenuStatus] = useState(false);
+  const [ session, loading ] = useSession();
+
+  console.log(session);
 
   const size = useWindowSize();
 
@@ -48,6 +52,32 @@ function Navbar() {
           <CloseIcon isOpen={menuStatus} onClick={menuHandler}>
             <MdClose />
           </CloseIcon>
+          {!session && (
+            <>
+              <MenuItem>
+                  <a onClick={() => signIn()}>Entrar</a>
+              </MenuItem>
+              <MenuItem>
+                <Link href="/auth/signup">
+                  <a>Cadastrar</a>
+                </Link>
+              </MenuItem>
+            </>
+          )}
+          {session && (
+            <>
+              <MenuItem>
+                <Link href="/">
+                  <a> {session.user.name}</a>
+                </Link>
+              </MenuItem>
+              <MenuItem>
+                <a onClick={() => signOut()} className="active">
+                  Sair
+                </a>
+              </MenuItem>
+            </>
+          )}
           <MenuItem>
             <Link href="/request-assistence">
               <a className="active">Solicitar Assistêcia</a>

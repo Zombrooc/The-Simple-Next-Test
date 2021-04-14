@@ -32,8 +32,6 @@ export default class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
 
-          <script async src="https://www.googletagmanager.com/gtag/js?id=244600255"></script>
-
           {/* Primary Meta Tags */}
           <meta name="title" content="The Simple" />
           <meta
