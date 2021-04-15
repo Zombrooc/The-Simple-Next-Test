@@ -19,8 +19,6 @@ function Navbar() {
   const [menuStatus, setMenuStatus] = useState(false);
   const [ session, loading ] = useSession();
 
-  console.log(session);
-
   const size = useWindowSize();
 
   const menuHandler = () => {

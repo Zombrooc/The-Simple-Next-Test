@@ -59,44 +59,24 @@
 
 import NextAuth from "next-auth";
 import Provider from "next-auth/providers";
-import jwt from "next-auth/jwt";
+const { compareSync } = require("bcryptjs");
 
 import { connectToDatabase } from "../../../middleware/database";
 
 const options = {
   callbacks: {
-    async session(session, user) {
-      // console.log(session);
-      // console.log('-------------------');
-      // console.log(user);
+    async signIn(user, account, profile) {
+      let isAllowedToSignIn = true;
 
-      // {
-      //   user: {
-      //     name: 'Elian Valdez',
-      //     email: 'elian.valdez09@gmail.com',
-      //     image: null
-      //   },
-      //   expires: '2021-05-15T01:48:29.449Z'
-      // }
-      // -------------------
-      // {
-      //   name: 'Elian Valdez',
-      //   email: 'elian.valdez09@gmail.com',
-      //   iat: 1618451248,
-      //   exp: 1621043248
-      // }
+      if (!(await compareSync(profile.password, user.password))) {
+        isAllowedToSignIn = false;
+      }
 
-      return session;
-    },
-    async jwt(token, user, account, profile, isNewUser) {
-      console.log(token);
-      console.log('------------------')
-      console.log(user)
-      console.log('------------------')
-      console.log(account)
-      console.log('------------------')
-      console.log(profile)
-      return token;
+      if (isAllowedToSignIn) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
   pages: {
@@ -104,7 +84,7 @@ const options = {
   },
   providers: [
     Provider.Credentials({
-      name: "Credentials",
+      name: "credentials",
       credentials: {
         email: {
           label: "E-mail",
@@ -124,7 +104,6 @@ const options = {
           return user;
         };
 
-
         if (user(credentials)) {
           return user(credentials);
         } else {
@@ -135,7 +114,7 @@ const options = {
   ],
   session: {
     jwt: true,
-  },
+  }
 };
 
 export default (req, res) => NextAuth(req, res, options);
