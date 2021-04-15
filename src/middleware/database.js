@@ -11,8 +11,6 @@ export async function connectToDatabase() {
   const client = await MongoClient.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
   });
 
   const dbName = url.parse(process.env.MONGO_URL).pathname.substr(1);

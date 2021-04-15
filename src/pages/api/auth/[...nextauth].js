@@ -1,8 +1,5 @@
 // import NextAuth from "next-auth";
 // import Providers from "next-auth/providers";
-// import jwt from "next-auth/jwt";
-
-// // import { connectToDatabase } from "../../../middleware/database";
 
 // export default NextAuth({
 //   pages: {
@@ -62,8 +59,46 @@
 
 import NextAuth from "next-auth";
 import Provider from "next-auth/providers";
+import jwt from "next-auth/jwt";
+
+import { connectToDatabase } from "../../../middleware/database";
 
 const options = {
+  callbacks: {
+    async session(session, user) {
+      // console.log(session);
+      // console.log('-------------------');
+      // console.log(user);
+
+      // {
+      //   user: {
+      //     name: 'Elian Valdez',
+      //     email: 'elian.valdez09@gmail.com',
+      //     image: null
+      //   },
+      //   expires: '2021-05-15T01:48:29.449Z'
+      // }
+      // -------------------
+      // {
+      //   name: 'Elian Valdez',
+      //   email: 'elian.valdez09@gmail.com',
+      //   iat: 1618451248,
+      //   exp: 1621043248
+      // }
+
+      return session;
+    },
+    async jwt(token, user, account, profile, isNewUser) {
+      console.log(token);
+      console.log('------------------')
+      console.log(user)
+      console.log('------------------')
+      console.log(account)
+      console.log('------------------')
+      console.log(profile)
+      return token;
+    },
+  },
   pages: {
     signIn: "/auth/signin",
   },
@@ -79,15 +114,19 @@ const options = {
         password: { label: "Password", type: "password" },
       },
       authorize(credentials) {
-        const user = {
-          id: 1,
-          name: "Elian Valdez",
-          email: "elian.valdez09@gmail.com",
+        const user = async (credentials) => {
+          const db = await connectToDatabase();
+
+          const collection = db.collection("users");
+
+          const user = await collection.findOne({ email: credentials.email });
+
+          return user;
         };
 
-        if (user) {
-          console.log(user);
-          return user;
+
+        if (user(credentials)) {
+          return user(credentials);
         } else {
           return null;
         }

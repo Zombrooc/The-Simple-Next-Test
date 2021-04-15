@@ -32,7 +32,7 @@ export default function SignIn({ csrfToken }) {
           </Link>
         </Title>
         <span> Entrar </span>
-        <form method="post"  action="/api/auth/callback/credentials">
+        <form method="post" action="/api/auth/callback/credentials">
           <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
           <label>
             E-mail
