@@ -49,7 +49,7 @@ export default class MyDocument extends Document {
           />
           <meta
             property="og:image"
-            content="https://thesimple.ga/images/banner.png"
+            content="https://thesimpletech.com.br/images/banner.png"
           />
 
           {/* Twitter */}
@@ -62,7 +62,7 @@ export default class MyDocument extends Document {
           />
           <meta
             property="twitter:image"
-            content="https://thesimple.ga/images/banner.png"
+            content="https://thesimpletech.com.br/images/banner.png"
           />
 
           <meta name="robots" content="index, follow" />
