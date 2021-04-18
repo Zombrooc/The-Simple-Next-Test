@@ -32,6 +32,22 @@ export default class MyDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
 
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=UA-194908872-1"
+          ></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+      
+        gtag('config', 'UA-194908872-1');
+        `,
+            }}
+          />
+
           {/* Primary Meta Tags */}
           <meta name="title" content="The Simple" />
           <meta
