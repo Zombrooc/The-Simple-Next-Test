@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { getCsrfToken } from "next-auth/client";
+import { providers, signIn, getCsrfToken } from "next-auth/client";
 
 import {
   Container,
@@ -9,7 +9,7 @@ import {
   Title,
 } from "../../styles/pages/auth/signin.styles";
 
-export default function SignIn({ csrfToken }) {
+export default function SignIn({ csrfToken, providers }) {
   return (
     <Container>
       <Head>
@@ -50,6 +50,16 @@ export default function SignIn({ csrfToken }) {
             <a>Registre-se</a>
           </Link>
         </div>
+        <hr />
+        {Object.values(providers)
+          .filter((provider) => (provider.name === "Google" ? true : false))
+          .map((provider) => (
+            <div key={provider.name}>
+              <button onClick={() => signIn(provider.id)}>
+                Entrar com {provider.name}
+              </button>
+            </div>
+          ))}
       </CenterBox>
     </Container>
   );
@@ -59,6 +69,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       csrfToken: await getCsrfToken(context),
+      providers: await providers(),
     },
   };
 }

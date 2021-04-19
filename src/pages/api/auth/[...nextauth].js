@@ -68,6 +68,16 @@ const options = {
     async signIn(user, account, profile) {
       let isAllowedToSignIn = true;
 
+      if (
+        account.provider === "google" &&
+        profile.verified_email === true &&
+        profile.email.endsWith("@gmail.com")
+      ) {
+        return true;
+      } else {
+        isAllowedToSignIn = false;
+      }
+
       if (!(await compareSync(profile.password, user.password))) {
         isAllowedToSignIn = false;
       }
@@ -111,10 +121,16 @@ const options = {
         }
       },
     }),
+    Provider.Google({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      authorizationUrl:
+        "https://accounts.google.com/o/oauth2/v2/auth?prompt=consent&access_type=offline&response_type=code",
+    }),
   ],
   session: {
     jwt: true,
-  }
+  },
 };
 
 export default (req, res) => NextAuth(req, res, options);
