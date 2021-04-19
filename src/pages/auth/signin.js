@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { providers, signIn, getCsrfToken } from "next-auth/client";
+import { FcGoogle } from 'react-icons/fc';
 
 import {
   Container,
@@ -50,13 +51,15 @@ export default function SignIn({ csrfToken, providers }) {
             <a>Registre-se</a>
           </Link>
         </div>
-        <hr />
+        <br />
+        <hr style={{width:'100%'}} />
+        <br />
         {Object.values(providers)
           .filter((provider) => (provider.name === "Google" ? true : false))
           .map((provider) => (
-            <div key={provider.name}>
-              <button onClick={() => signIn(provider.id)}>
-                Entrar com {provider.name}
+            <div key={provider.name} style={{width: '100%'}}>
+              <button onClick={() => signIn(provider.id)} style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <FcGoogle style={{fontSize: '20px'}} />      Entrar com {provider.name}
               </button>
             </div>
           ))}
