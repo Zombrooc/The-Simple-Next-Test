@@ -1,8 +1,9 @@
 import React from "react";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { providers, signIn, getCsrfToken } from "next-auth/client";
-import { FcGoogle } from 'react-icons/fc';
+import { FcGoogle } from "react-icons/fc";
 
 import {
   Container,
@@ -11,6 +12,9 @@ import {
 } from "../../styles/pages/auth/signin.styles";
 
 export default function SignIn({ csrfToken, providers }) {
+
+  const router = useRouter();
+
   return (
     <Container>
       <Head>
@@ -37,11 +41,11 @@ export default function SignIn({ csrfToken, providers }) {
           <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
           <label>
             E-mail
-            <input name="email" type="email" />
+            <input name="email" type="email" required />
           </label>
           <label>
             Senha
-            <input name="password" type="password" />
+            <input name="password" type="password" minLength="8" required />
           </label>
           <button type="submit">Entrar</button>
         </form>
@@ -52,14 +56,23 @@ export default function SignIn({ csrfToken, providers }) {
           </Link>
         </div>
         <br />
-        <hr style={{width:'100%'}} />
+        <hr style={{ width: "100%" }} />
         <br />
         {Object.values(providers)
           .filter((provider) => (provider.name === "Google" ? true : false))
           .map((provider) => (
-            <div key={provider.name} style={{width: '100%'}}>
-              <button onClick={() => signIn(provider.id)} style={{width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                <FcGoogle style={{fontSize: '20px'}} />      Entrar com {provider.name}
+            <div key={provider.name} style={{ width: "100%" }}>
+              <button
+                onClick={() => signIn(provider.id)}
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <FcGoogle style={{ fontSize: "20px" }} />      Entrar com{" "}
+                {provider.name}
               </button>
             </div>
           ))}
