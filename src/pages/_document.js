@@ -49,10 +49,17 @@ export default class MyDocument extends Document {
           />
 
           {/* Primary Meta Tags */}
-          <meta name="title" content="The Simple" />
+          <meta name="language" content="pt-BR" />
+          <title>The Simple TECH</title>
           <meta
             name="description"
-            content="The Simple Network - Uma maneira simples de solucionar seus  problemas com informática."
+            content="The Simple é uma empresa para quem busca rápidas soluções de informática. Trabalhamos com reparo de computadores, criação de sites, aulas particulares e +."
+          />
+          <meta name="robots" content="all" />
+          <meta name="author" content="The Simple TECH" />
+          <meta
+            name="keywords"
+            content="informática computadores manutencao aula particular webdesign"
           />
 
           {/* Open Graph / Facebook */}
@@ -81,11 +88,10 @@ export default class MyDocument extends Document {
             content="https://thesimpletech.com.br/images/banner.png"
           />
 
-          <meta name="robots" content="index, follow" />
           <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-          <meta name="language" content="Portuguese" />
           <meta name="revisit-after" content="7 days" />
           <meta name="author" content="The Simple TECH" />
+          <meta property="article:author" content="The Simple TECH"></meta>
 
           <meta name="theme-color" content="#2e2e2e" />
           <link rel="manifest" href="/manifest.webmanifest" />
