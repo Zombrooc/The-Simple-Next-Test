@@ -1,3 +1,5 @@
+import { hashSync } from 'bcryptjs';
+
 import { connectToDatabase } from "../../../middleware/database";
 
 export default async function handler(req, res) {
@@ -16,10 +18,13 @@ export default async function handler(req, res) {
     }
 
     try {
+
+      const hash = await hashSync(password, 10);
+
       const newUser = await collection.insertOne({
         name,
         email,
-        password,
+        password: hash,
       });
 
       if (newUser) {
