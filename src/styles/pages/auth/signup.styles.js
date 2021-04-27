@@ -10,13 +10,12 @@ export const Container = styled.div`
 `;
 
 export const CenterBox = styled.div`
-  max-width: 750px;
+  max-width: 500px;
   width: 100%;
-  background: var(--color-light);
+  background: #fff;
+  border: 1px solid #ddd;
   border-radius: 6px;
   padding: 20px 40px;
-  margin-top: 15px;
-  margin-bottom: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,28 +31,31 @@ export const CenterBox = styled.div`
     text-align: center;
   }
 
-  button {
-    display: block;
-    background: var(--color-dark);
-    color: var(--color-light);
-    border: 0;
-    cursor: pointer;
-    border-radius: 4px;
-    width: 100%;
-    padding: 15px;
-    font-weight: bold;
-    font-size: 12px;
-    transition: 0.5s;
-  }
+  form {
+    #password {
+      margin-bottom: 0 !important;
+    }
 
-  button:hover {
-    background-color: #000;
-    color: #fff;
+    a {
+      color: var(--color-dark);
+      text-decoration: underline;
+      font-size: 14px;
+      font-weight: 600;
+      margin: 8px 0px 24px;
+      opacity: 0.8;
+      transition: opacity 0.2s ease 0s;
+      align-self: flex-start;
+
+      &:hover {
+        opacity: 1;
+        text-decoration: none;
+      }
+    }
   }
 
   .signinOption {
     font-size: 14px;
-    margin-top: 30px;
+    margin-top: 24px;
     color: var(--color-dark);
     text-align: center;
 
@@ -68,8 +70,28 @@ export const CenterBox = styled.div`
 
       &:hover {
         opacity: 1;
+        text-decoration: none;
       }
     }
+  }
+
+  button {
+    display: block;
+    background: var(--color-dark);
+    color: var(--color-light);
+    border: 0;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 100%;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 12px;
+    transition: 0.2s;
+  }
+
+  button:hover {
+    background-color: #000;
+    color: #fff;
   }
 `;
 

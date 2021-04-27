@@ -12,7 +12,6 @@ import {
 } from "../../styles/pages/auth/signin.styles";
 
 export default function SignIn({ csrfToken, providers }) {
-
   const router = useRouter();
 
   return (
@@ -37,6 +36,21 @@ export default function SignIn({ csrfToken, providers }) {
           </Link>
         </Title>
         <span> Entrar </span>
+        {router.query.error && (
+          <div
+            style={{
+              width: "100%",
+              padding: "25px",
+              textAlign: "center",
+              background: "var(--color-danger)",
+              color: "var(--color-light)",
+              borderRadius: "7px",
+              marginBottom: '25px',
+            }}
+          >
+            Email ou senha incorreta. Por favor, tente novamente
+          </div>
+        )}
         <form method="post" action="/api/auth/callback/credentials">
           <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
           <label>

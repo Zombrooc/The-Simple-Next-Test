@@ -18,7 +18,7 @@ const options = {
       }
 
       if (!(await compareSync(profile.password, user.password))) {
-        isAllowedToSignIn = false;
+        return false;
       }
 
       if (isAllowedToSignIn) {
@@ -43,23 +43,24 @@ const options = {
         },
         password: { label: "Password", type: "password" },
       },
-      authorize(credentials) {
-        const user = async (credentials) => {
-          const db = await connectToDatabase();
+      authorize: async (credentials) => {
+        try {
+          const user = async (credentials) => {
+            const db = await connectToDatabase();
 
-          const collection = db.collection("users");
+            const collection = db.collection("users");
 
-          const user = await collection.findOne({ email: credentials.email });
+            const user = await collection.findOne({ email: credentials.email });
 
-          return user;
-        };
-
-        if(!user(credentials)){
-          return false;
-        }
-
-        if (user(credentials)) {
-          return user(credentials);
+            return user;
+          };
+          if (user(credentials)) {
+            return user(credentials);
+          }
+        } catch (e) {
+          const errorMessage = e.response.data.message;
+          // Redirecting to the login page with error message          in the URL
+          throw new Error(errorMessage + "&email=" + credentials.email);
         }
       },
     }),

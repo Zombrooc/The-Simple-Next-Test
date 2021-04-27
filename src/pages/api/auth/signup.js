@@ -9,7 +9,6 @@ export default async function handler(req, res) {
     const { name, email, password } = req.body;
 
     if (await collection.findOne({ email })) {
-      console.log(await collection.findOne({ email }));
       return res.status(409).json({
         field: "email",
         message: "Já existe um usuário com esse e-mail",

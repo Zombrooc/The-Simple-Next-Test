@@ -50,7 +50,6 @@ export default class MyDocument extends Document {
 
           {/* Primary Meta Tags */}
           <meta name="language" content="pt-BR" />
-          <title>The Simple TECH</title>
           <meta
             name="description"
             content="The Simple é uma empresa para quem busca rápidas soluções de informática. Trabalhamos com reparo de computadores, criação de sites, aulas particulares e +."
