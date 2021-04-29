@@ -62,7 +62,7 @@ export default class MyDocument extends Document {
 
           {/* Open Graph / Facebook */}
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://www.thesimple.ga/" />
+          <meta property="og:url" content="https://www.thesimpletech.com.br/" />
           <meta property="og:title" content="The Simple" />
           <meta
             property="og:description"
@@ -75,7 +75,7 @@ export default class MyDocument extends Document {
 
           {/* Twitter */}
           <meta property="twitter:card" content="summary_large_image" />
-          <meta property="twitter:url" content="https://www.thesimple.ga/" />
+          <meta property="twitter:url" content="https://www.thesimpletech.com.br/" />
           <meta property="twitter:title" content="The Simple" />
           <meta
             property="twitter:description"
