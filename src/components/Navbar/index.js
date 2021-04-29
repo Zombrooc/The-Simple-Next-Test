@@ -17,7 +17,7 @@ import {
 
 function Navbar() {
   const [menuStatus, setMenuStatus] = useState(false);
-  const [ session, loading ] = useSession();
+  const [session, loading] = useSession();
 
   const size = useWindowSize();
 
@@ -50,7 +50,7 @@ function Navbar() {
           <CloseIcon isOpen={menuStatus} onClick={menuHandler}>
             <MdClose />
           </CloseIcon>
-          {!session && (
+          {/* {!session && (
             <>
               <MenuItem>
                   <a onClick={() => signIn()}>Entrar</a>
@@ -75,9 +75,9 @@ function Navbar() {
                 </a>
               </MenuItem>
             </>
-          )}
+          )} */}
           <MenuItem>
-            <Link href="/request-assistence">
+            <Link href="/services/request-assistence">
               <a className="active">Solicitar Assistêcia</a>
             </Link>
           </MenuItem>

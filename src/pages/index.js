@@ -1,6 +1,6 @@
 import React from "react";
 import Head from "next/head";
-import Link from 'next/link';
+import Link from "next/link";
 import { Link as ScrollLink } from "react-scroll";
 
 import Navbar from "../components/Navbar";
@@ -10,6 +10,7 @@ import particlesConfig from "../config/particles.config.json";
 
 import graficDesign from "../assets/images/grafic-design.svg";
 import computerRepair from "../assets/images/computerRepair.svg";
+import programming from "../assets/images/programming.svg";
 
 import {
   Container,
@@ -70,12 +71,14 @@ export default function Home() {
                 <div className="content">
                   <p>
                     Criação de UI/UX, logomarcas, cartões de visita, panfleto e
-                    muito{" "}
+                    muito
                     <span style={{ color: "var(--color-danger)" }}>+</span>.
                     Tudo feito de forma profissional e original na melhor
                     qualidade possível.
                   </p>
-                  <a href="https://www.google.com.br">Fazer orçamento</a>
+                  <a href="https://wa.me/p/4501937493186011/553588777750">
+                    Fazer orçamento
+                  </a>
                 </div>
               </div>
             </div>
@@ -94,7 +97,9 @@ export default function Home() {
                     melhora de desempenho. Buscamos o equipamento em sua
                     residência ou empresa.
                   </p>
-                  <a href="https://www.google.com.br">Solicitar serviço</a>
+                  <Link href="/services/request-assistence">
+                    <a> Solicitar serviço </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -103,19 +108,21 @@ export default function Home() {
               <div className="face face1">
                 <div className="content">
                   <img
-                    src="https://github.com/Jhonierpc/WebDevelopment/blob/master/CSS%20Card%20Hover%20Effects/img/code_128.png?raw=true"
-                    alt="Just a test"
+                    src={programming}
+                    alt="Programação"
                   />
-                  <h3>Code</h3>
+                  <h3>Desenvolvimento de Sites</h3>
                 </div>
               </div>
               <div className="face face2">
                 <div className="content">
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quas cum cumque minus iste veritatis provident at.
+                    Criação de sites completos usando o que há de mais atual nas
+                    tecnologias de desenvolvimento Web. Oferecemos sites
+                    performáticos e dinâmicos para que sua empresa possa ganhar
+                    mais espaço na internet.
                   </p>
-                  <a href="https://www.google.com.br">Read More</a>
+                  <a href="https://wa.me/p/3570230293095834/553588777750">Faça seu orçamento</a>
                 </div>
               </div>
             </div>

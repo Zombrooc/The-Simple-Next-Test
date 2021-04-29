@@ -81,7 +81,7 @@ export default createGlobalStyle`
     margin-bottom: 5px;
   }
 
-  input, select {
+  input, select, textarea {
     width: 100%;
     margin-bottom: 15px;
     border-radius: 4px;

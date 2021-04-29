@@ -169,7 +169,7 @@ export default function SignUp({ csrfToken, providers }) {
                     alignItems: "center",
                   }}
                 >
-                  <FcGoogle style={{ fontSize: "20px" }} />      Entrar com{" "}
+                  <FcGoogle style={{ fontSize: "20px" }} />      Entrar com
                   {provider.name}
                 </button>
               </div>
