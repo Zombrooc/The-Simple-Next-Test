@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { providers, signIn, getCsrfToken } from "next-auth/client";
+import { providers, signIn, getCsrfToken, useSession } from "next-auth/client";
 import { FcGoogle } from "react-icons/fc";
 import Head from "next/head";
 import axios from "axios";
@@ -20,6 +20,14 @@ const errors = {
 
 export default function SignUp({ csrfToken, providers }) {
   const router = useRouter();
+
+  const [ session, loading ] = useSession()
+
+  useEffect(() => {
+    if (session) {
+      router.back()
+    }
+  }, [session]);
 
   const [errorStatus, setErrorStatus] = useState();
   const [inputData, setInputData] = useState({

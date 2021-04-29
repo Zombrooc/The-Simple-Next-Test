@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { useRouter } from 'next/router'
-import { AiOutlineArrowLeft } from 'react-icons/ai';
+import { useRouter } from "next/router";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import Navbar from "../../components/Navbar";
 
@@ -12,8 +12,7 @@ import {
 } from "../../styles/pages/services/requestAssistence.styles";
 
 export default function RequestAssistence() {
-
-  const router = useRouter()
+  const router = useRouter();
 
   const [inputData, setInputData] = useState({
     deviceType: "",
@@ -45,12 +44,12 @@ export default function RequestAssistence() {
       {/* <Navbar /> */}
 
       <div className="pushBack" onClick={() => router.back()}>
-        <AiOutlineArrowLeft/>    Voltar 
+        <AiOutlineArrowLeft />    Voltar
       </div>
 
       <CenterBox>
         <h1>
-          Solicite assistência técnica{" "}
+          Solicitar assistência técnica{" "}
           <span
             style={{
               textDecoration: "underline",

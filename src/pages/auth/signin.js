@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { providers, signIn, getCsrfToken } from "next-auth/client";
+import { providers, signIn, getCsrfToken, useSession } from "next-auth/client";
 import { FcGoogle } from "react-icons/fc";
 
 import {
@@ -12,7 +12,15 @@ import {
 } from "../../styles/pages/auth/signin.styles";
 
 export default function SignIn({ csrfToken, providers }) {
+
+  const [ session, loading ] = useSession()
   const router = useRouter();
+
+  useEffect(() => {
+    if (session) {
+      router.back()
+    }
+  }, [session]);
 
   return (
     <Container>
