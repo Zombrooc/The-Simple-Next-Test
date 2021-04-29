@@ -30,21 +30,23 @@ export default function Home() {
       <Landing>
         <Particles params={particlesConfig} />
         <Content>
-          <Title>
-            <p className="glitch">
-              The Simple <span>TECH {"\u003c\u002f\u003e"}</span>
-            </p>
-            <p className="glitch">
-              The Simple <span>TECH {"\u003c\u002f\u003e"}</span>
-            </p>
-            <p className="glitch">
-              The Simple <span>TECH {"\u003c\u002f\u003e"}</span>
-            </p>
-          </Title>
+          <h1>
+            <Title>
+              <p className="glitch">
+                The Simple <span>TECH {"\u003c\u002f\u003e"}</span>
+              </p>
+              <p className="glitch">
+                The Simple <span>TECH {"\u003c\u002f\u003e"}</span>
+              </p>
+              <p className="glitch">
+                The Simple <span>TECH {"\u003c\u002f\u003e"}</span>
+              </p>
+            </Title>
+          </h1>
           <hr />
-          <p className="brand">
+          <h2 className="brand">
             Soluções tecnológicas de uma maneira simples e rápida 
-          </p>
+          </h2>
           <div className="callToAction">
             <ScrollLink
               to="ourServices"
@@ -107,10 +109,7 @@ export default function Home() {
             <div className="card">
               <div className="face face1">
                 <div className="content">
-                  <img
-                    src={programming}
-                    alt="Programação"
-                  />
+                  <img src={programming} alt="Programação" />
                   <h3>Desenvolvimento de Sites</h3>
                 </div>
               </div>
@@ -122,7 +121,9 @@ export default function Home() {
                     performáticos e dinâmicos para que sua empresa possa ganhar
                     mais espaço na internet.
                   </p>
-                  <a href="https://wa.me/p/3570230293095834/553588777750">Faça seu orçamento</a>
+                  <a href="https://wa.me/p/3570230293095834/553588777750">
+                    Faça seu orçamento
+                  </a>
                 </div>
               </div>
             </div>

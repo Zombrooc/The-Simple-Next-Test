@@ -35,7 +35,7 @@ export default function SignIn({ csrfToken, providers }) {
             </a>
           </Link>
         </Title>
-        <span> Entrar </span>
+        <h1><span> Entrar </span></h1>
         {router.query.error && (
           <div
             style={{
@@ -85,7 +85,7 @@ export default function SignIn({ csrfToken, providers }) {
                   alignItems: "center",
                 }}
               >
-                <FcGoogle style={{ fontSize: "20px" }} />      Entrar com
+                <FcGoogle style={{ fontSize: "20px" }} />      Entrar com o {" "}
                 {provider.name}
               </button>
             </div>

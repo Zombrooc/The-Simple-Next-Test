@@ -98,7 +98,7 @@ export default function SignUp({ csrfToken, providers }) {
               </a>
             </Link>
           </Title>
-          <span> Criar sua conta </span>
+          <h1><span> Criar sua conta </span></h1>
           {errorStatus && <ErrorBox>{errors[errorStatus]}</ErrorBox>}
           <form onSubmit={handleSubmit}>
             {/* <ImageInput name="image" label="Avatar" /> */}
@@ -169,7 +169,7 @@ export default function SignUp({ csrfToken, providers }) {
                     alignItems: "center",
                   }}
                 >
-                  <FcGoogle style={{ fontSize: "20px" }} />      Entrar com
+                  <FcGoogle style={{ fontSize: "20px" }} />      Entrar com o{" "}
                   {provider.name}
                 </button>
               </div>

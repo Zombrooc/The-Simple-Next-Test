@@ -186,7 +186,7 @@ export const Content = styled.div`
     width: 65%;
   }
 
-  p.brand {
+  h2.brand {
     font-size: 2rem;
     margin-top: 15px;
   }
