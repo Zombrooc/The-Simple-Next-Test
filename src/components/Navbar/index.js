@@ -50,7 +50,7 @@ function Navbar() {
           <CloseIcon isOpen={menuStatus} onClick={menuHandler}>
             <MdClose />
           </CloseIcon>
-          {/* {!session && (
+          {!session && (
             <>
               <MenuItem>
                   <a onClick={() => signIn()}>Entrar</a>
@@ -75,7 +75,7 @@ function Navbar() {
                 </a>
               </MenuItem>
             </>
-          )} */}
+          )}
           <MenuItem>
             <Link href="/services/request-assistence">
               <a className="active">Solicitar Assistêcia</a>
