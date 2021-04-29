@@ -91,7 +91,7 @@ export default class MyDocument extends Document {
           <meta name="author" content="The Simple TECH" />
           <meta property="article:author" content="The Simple TECH"></meta>
 
-          <meta name="theme-color" content="#2e2e2e" />
+          <meta name="theme-color" content="#f2f2f2" />
           <link rel="manifest" href="/manifest.webmanifest" />
           <link rel="shortcut icon" href="/images/favicon.ico" />
           <link
