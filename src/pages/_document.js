@@ -49,7 +49,7 @@ export default class MyDocument extends Document {
           />
 
           {/* Primary Meta Tags */}
-          <meta name="language" content="pt-BR" />
+          <meta name="language" content="pt" />
           <meta
             name="description"
             content="The Simple é uma empresa para quem busca rápidas soluções de informática. Trabalhamos com reparo de computadores, criação de sites, aulas particulares e +."
@@ -57,7 +57,7 @@ export default class MyDocument extends Document {
           <meta name="robots" content="all" />
           <meta
             name="keywords"
-            content="informática computadores manutencao aula particular webdesign"
+            content="informática computadores manutencao aula particular webdesign assistencia tecnica criar sites"
           />
 
           {/* Open Graph / Facebook */}
