@@ -36,7 +36,7 @@ export default function RequestAssistence() {
   return (
     <Container>
       <Head>
-        <title>Solicitar assistência técnica</title>
+        <title>The Simple - Assistência Técnica</title>
       </Head>
 
       <div className="pushBack" onClick={() => router.back()}>

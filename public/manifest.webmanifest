@@ -9,9 +9,9 @@
   "shortcuts": [
     {
       "name": "The Simple - Assistência Técnica",
-      "short_name": "Solicitar Reparo",
-      "description": "Solicite reparos e suporte técnico de maneira imediata",
-      "url": "/request-assistence",
+      "short_name": "Assistência Técnica",
+      "description": "Solicite suporte técnico de maneira rápida e imediata",
+      "url": "services/request-assistence",
       "icons": [
         {
           "src": "/images/android-chrome-192x192.png",
