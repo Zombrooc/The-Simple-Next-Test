@@ -13,6 +13,8 @@ import computerRepair from "../assets/images/computerRepair.svg";
 import programming from "../assets/images/programming.svg";
 import privateLessons from "../assets/images/privateLessons.svg";
 
+import Footer from "../components/Footer";
+
 import {
   Container,
   Landing,
@@ -145,14 +147,15 @@ export default function Home() {
                     Desenvolvimento Web do básico ao avançado, Design e muito{" "}
                     <span style={{ color: "var(--color-danger)" }}>+</span>.
                   </p>
-                  <a href="https://wa.me/553588777750">
-                    Agendar horário
-                  </a>
+                  <a href="https://wa.me/message/FD6P356HWLEVH1">Agendar horário</a>
                 </div>
               </div>
             </div>
           </div>
         </CardContainer>
+      </Container>
+      <Container>
+        <Footer />
       </Container>
     </Container>
   );

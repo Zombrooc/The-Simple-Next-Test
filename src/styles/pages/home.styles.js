@@ -1,8 +1,7 @@
 import styled, { keyframes } from "styled-components";
 
 export const Container = styled.div`
-  height: 100% !important;
-  padding-top: 2.54rem;
+  
 `;
 
 export const CardContainer = styled.div`
@@ -114,10 +113,8 @@ export const CardContainer = styled.div`
 
 export const Landing = styled.div`
   width: 100%;
-  height: 100%;
-  min-height: 100%;
-
-  top: 0;
+  height: 100vh;
+  padding-top: 2.54rem;
 
   canvas {
     display: block;
