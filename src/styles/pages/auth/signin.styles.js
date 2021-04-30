@@ -7,7 +7,27 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: var(--color-dark); */
+
+  div.pushBack {
+    padding: 15px;
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0ch;
+    background: var(--color-light);
+    transition: .5s;
+
+    &:hover {
+      box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14),
+        0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+      background: #fff;
+    }
+  }
 `;
 
 export const CenterBox = styled.div`
@@ -93,6 +113,10 @@ export const CenterBox = styled.div`
   button:hover {
     background-color: #000;
     color: #fff;
+  }
+
+  @media screen and (max-width: 768px){
+    margin-top: 20vh;
   }
 `;
 

@@ -30,6 +30,7 @@ export const CardContainer = styled.div`
     width: 300px;
     height: 200px;
     transition: 0.5s;
+
   }
 
   .container .card .face.face1 {
@@ -81,8 +82,9 @@ export const CardContainer = styled.div`
     align-items: center;
     padding: 20px;
     box-sizing: border-box;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
     transform: translateY(-100px);
+    border: 1px solid #ddd;
+
   }
 
   .container .card:hover .face.face2 {
@@ -170,7 +172,7 @@ export const Content = styled.div`
         background: transparent;
       }
 
-      @media screen and (max-width: 550px){
+      @media screen and (max-width: 550px) {
         color: var(--color-light);
         background: transparent;
       }

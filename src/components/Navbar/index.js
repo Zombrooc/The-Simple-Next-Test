@@ -78,7 +78,7 @@ function Navbar() {
           )}
           <MenuItem>
             <Link href="/services/request-assistence">
-              <a className="active">Solicitar Assistêcia</a>
+              <a className="active"><strong>Solicitar Assistêcia</strong></a>
             </Link>
           </MenuItem>
         </Menu>

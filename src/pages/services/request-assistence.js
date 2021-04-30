@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-
-import Navbar from "../../components/Navbar";
 
 import {
   Container,
@@ -41,7 +38,6 @@ export default function RequestAssistence() {
       <Head>
         <title>Solicitar assistência técnica</title>
       </Head>
-      {/* <Navbar /> */}
 
       <div className="pushBack" onClick={() => router.back()}>
         <AiOutlineArrowLeft />    Voltar

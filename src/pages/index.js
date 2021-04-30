@@ -11,6 +11,7 @@ import particlesConfig from "../config/particles.config.json";
 import graficDesign from "../assets/images/grafic-design.svg";
 import computerRepair from "../assets/images/computerRepair.svg";
 import programming from "../assets/images/programming.svg";
+import privateLessons from "../assets/images/privateLessons.svg";
 
 import {
   Container,
@@ -45,7 +46,7 @@ export default function Home() {
           </h1>
           <hr />
           <h2 className="brand">
-            Soluções tecnológicas de uma maneira simples e rápida 
+            Soluções em tecnologia de uma maneira simples e rápida 
           </h2>
           <div className="callToAction">
             <ScrollLink
@@ -88,7 +89,7 @@ export default function Home() {
               <div className="face face1">
                 <div className="content">
                   <img src={computerRepair} alt="Manutenção de Computadores" />
-                  <h3>Reparo de Computadores</h3>
+                  <h3>Assitência Técnica Especializada</h3>
                 </div>
               </div>
               <div className="face face2">
@@ -100,7 +101,7 @@ export default function Home() {
                     residência ou empresa.
                   </p>
                   <Link href="/services/request-assistence">
-                    <a> Solicitar serviço </a>
+                    <a> Solicitar assistência </a>
                   </Link>
                 </div>
               </div>
@@ -118,11 +119,34 @@ export default function Home() {
                   <p>
                     Criação de sites completos usando o que há de mais atual nas
                     tecnologias de desenvolvimento Web. Oferecemos sites
-                    performáticos e dinâmicos para que sua empresa possa ganhar
-                    mais espaço na internet.
+                    performáticos e dinâmicos para que você e sua empresa possam
+                    ganhar mais espaço na internet.
                   </p>
                   <a href="https://wa.me/p/3570230293095834/553588777750">
                     Faça seu orçamento
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div className="card">
+              <div className="face face1">
+                <div className="content">
+                  <img src={privateLessons} alt="Programação" />
+                  <h3>Aulas Particulares</h3>
+                </div>
+              </div>
+              <div className="face face2">
+                <div className="content">
+                  <p>
+                    Acreditamos que conhecimento é poder e que devemos sempre
+                    passa-lo adiante, por isso oferecemos aulas particulares nas
+                    mais diversas área de informática. Informática Essencial,
+                    Desenvolvimento Web do básico ao avançado, Design e muito{" "}
+                    <span style={{ color: "var(--color-danger)" }}>+</span>.
+                  </p>
+                  <a href="https://wa.me/553588777750">
+                    Agendar horário
                   </a>
                 </div>
               </div>

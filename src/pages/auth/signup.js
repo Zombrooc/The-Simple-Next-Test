@@ -3,8 +3,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { providers, signIn, getCsrfToken, useSession } from "next-auth/client";
 import { FcGoogle } from "react-icons/fc";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 import Head from "next/head";
 import axios from "axios";
+
+import Loading from '../../components/Loading';
 
 import {
   Container,
@@ -21,11 +24,11 @@ const errors = {
 export default function SignUp({ csrfToken, providers }) {
   const router = useRouter();
 
-  const [ session, loading ] = useSession()
+  const [session, loading] = useSession();
 
   useEffect(() => {
     if (session) {
-      router.back()
+      router.back();
     }
   }, [session]);
 
@@ -90,6 +93,9 @@ export default function SignUp({ csrfToken, providers }) {
         <title>The Simple | Cadastro</title>
       </Head>
       <Container>
+        <div className="pushBack" onClick={() => router.push("/")}>
+          <AiOutlineArrowLeft />    Voltar para o início
+        </div>
         <CenterBox>
           <Title>
             <Link href="/">
@@ -106,7 +112,9 @@ export default function SignUp({ csrfToken, providers }) {
               </a>
             </Link>
           </Title>
-          <h1><span> Criar sua conta </span></h1>
+          <h1>
+            <span> Criar sua conta </span>
+          </h1>
           {errorStatus && <ErrorBox>{errors[errorStatus]}</ErrorBox>}
           <form onSubmit={handleSubmit}>
             {/* <ImageInput name="image" label="Avatar" /> */}
@@ -183,6 +191,7 @@ export default function SignUp({ csrfToken, providers }) {
               </div>
             ))}
         </CenterBox>
+        <Loading show={loading}/>
       </Container>
     </>
   );

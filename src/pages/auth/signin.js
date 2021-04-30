@@ -4,6 +4,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { providers, signIn, getCsrfToken, useSession } from "next-auth/client";
 import { FcGoogle } from "react-icons/fc";
+import { AiOutlineArrowLeft } from "react-icons/ai";
+
+import Loading from "../../components/Loading";
 
 import {
   Container,
@@ -12,13 +15,12 @@ import {
 } from "../../styles/pages/auth/signin.styles";
 
 export default function SignIn({ csrfToken, providers }) {
-
-  const [ session, loading ] = useSession()
+  const [session, loading] = useSession();
   const router = useRouter();
 
   useEffect(() => {
     if (session) {
-      router.back()
+      router.back();
     }
   }, [session]);
 
@@ -27,6 +29,9 @@ export default function SignIn({ csrfToken, providers }) {
       <Head>
         <title> The Simple - Entrar </title>
       </Head>
+      <div className="pushBack" onClick={() => router.push("/")}>
+        <AiOutlineArrowLeft />    Voltar para o início
+      </div>
       <CenterBox>
         <Title>
           <Link href="/">
@@ -43,7 +48,9 @@ export default function SignIn({ csrfToken, providers }) {
             </a>
           </Link>
         </Title>
-        <h1><span> Entrar </span></h1>
+        <h1>
+          <span> Entrar </span>
+        </h1>
         {router.query.error && (
           <div
             style={{
@@ -53,7 +60,7 @@ export default function SignIn({ csrfToken, providers }) {
               background: "var(--color-danger)",
               color: "var(--color-light)",
               borderRadius: "7px",
-              marginBottom: '25px',
+              marginBottom: "25px",
             }}
           >
             Email ou senha incorreta. Por favor, tente novamente
@@ -93,12 +100,13 @@ export default function SignIn({ csrfToken, providers }) {
                   alignItems: "center",
                 }}
               >
-                <FcGoogle style={{ fontSize: "20px" }} />      Entrar com o {" "}
+                <FcGoogle style={{ fontSize: "20px" }} />      Entrar com o{" "}
                 {provider.name}
               </button>
             </div>
           ))}
       </CenterBox>
+      <Loading show={loading} />
     </Container>
   );
 }
