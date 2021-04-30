@@ -8,6 +8,7 @@ import {
   Container,
   CenterBox,
 } from "../../styles/pages/services/requestAssistence.styles";
+import Loading from "../../components/Loading";
 
 export default function RequestAssistence() {
   const [session, loading] = useSession();
@@ -124,6 +125,7 @@ export default function RequestAssistence() {
           <button type="submit"> Solicitar </button>
         </form>
       </CenterBox>
+      <Loading show={loading}/>
     </Container>
   );
 }
