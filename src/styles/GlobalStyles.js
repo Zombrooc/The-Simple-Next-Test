@@ -92,6 +92,10 @@ export default createGlobalStyle`
     padding: 12px 16px;
   }
 
+  textarea{
+    height: 100px;
+  }
+
   .css-62g3xt-dummyInput {
     padding: 0 !important;
   }

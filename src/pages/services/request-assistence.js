@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import { signIn, useSession } from "next-auth/client";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import {
@@ -9,7 +10,16 @@ import {
 } from "../../styles/pages/services/requestAssistence.styles";
 
 export default function RequestAssistence() {
+  const [session, loading] = useSession();
   const router = useRouter();
+
+  useEffect(() => {
+    if (!session) {
+      signIn(null, {
+        callbackUrl: `${process.env.production ? 'https://thesimpletech.com.br' : 'http://localhost:3000'}${router.pathname}`,
+      });
+    }
+  }, [session]);
 
   const [inputData, setInputData] = useState({
     deviceType: "",
@@ -64,15 +74,21 @@ export default function RequestAssistence() {
 
         <form onSubmit={handleSubmit}>
           <label>
+            {" "}
             Tipo de Equipamento
-            <input
+            <select
               name="deviceType"
-              type="text"
+              placeholder="Selecione o tipo de equipamento"
               onChange={handleInput}
               value={inputData.deviceType}
               required={true}
-              placeholder="Ex: Computador, Notebook, All-in-One..."
-            />
+            >
+              <option> Selecione o tipo de equipamento </option>
+              <option value="desktop"> Desktop (Computador de mesa) </option>
+              <option value="notebook"> Notebook </option>
+              <option value="all-in-one"> All-In-One </option>
+              <option value="others"> Outros.. </option>
+            </select>
           </label>
           <label>
             Marca
