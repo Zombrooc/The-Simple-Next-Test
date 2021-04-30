@@ -68,7 +68,7 @@ export default function Home() {
             <div className="card">
               <div className="face face1">
                 <div className="content">
-                  <img src={graficDesign} alt="Design Gráfico" />
+                  <img src={graficDesign} alt="Design e mídias digitais" />
                   <h3>Design e mídias digitais</h3>
                 </div>
               </div>
@@ -112,7 +112,7 @@ export default function Home() {
             <div className="card">
               <div className="face face1">
                 <div className="content">
-                  <img src={programming} alt="Programação" />
+                  <img src={programming} alt="Desenvolvimento Web" />
                   <h3>Desenvolvimento de Sites</h3>
                 </div>
               </div>
@@ -134,7 +134,7 @@ export default function Home() {
             <div className="card">
               <div className="face face1">
                 <div className="content">
-                  <img src={privateLessons} alt="Programação" />
+                  <img src={privateLessons} alt="Aulas particulares" />
                   <h3>Aulas Particulares</h3>
                 </div>
               </div>
