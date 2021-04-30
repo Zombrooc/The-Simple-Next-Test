@@ -16,7 +16,7 @@ export default function RequestAssistence() {
   useEffect(() => {
     if (!session) {
       signIn(null, {
-        callbackUrl: `${process.env.production ? 'https://thesimpletech.com.br' : 'http://localhost:3000'}${router.pathname}`,
+        callbackUrl: `${process.env.NODE_ENV === 'production' ? 'https://thesimpletech.com.br' : 'http://localhost:3000'}${router.pathname}`,
       });
     }
   }, [session]);
