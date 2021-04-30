@@ -66,7 +66,7 @@ export default class MyDocument extends Document {
           <meta property="og:title" content="The Simple" />
           <meta
             property="og:description"
-            content="The Simple Network - Uma maneira simples de solucionar seus  problemas com informática."
+            content="The Simple é uma empresa para quem busca rápidas soluções de informática. Trabalhamos com reparo de computadores, criação de sites, aulas particulares e +."
           />
           <meta
             property="og:image"
@@ -79,7 +79,7 @@ export default class MyDocument extends Document {
           <meta property="twitter:title" content="The Simple" />
           <meta
             property="twitter:description"
-            content="The Simple Network - Uma maneira simples de solucionar seus  problemas com informática."
+            content="The Simple é uma empresa para quem busca rápidas soluções de informática. Trabalhamos com reparo de computadores, criação de sites, aulas particulares e +."
           />
           <meta
             property="twitter:image"
