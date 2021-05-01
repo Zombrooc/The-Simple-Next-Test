@@ -14,18 +14,13 @@ export default function RequestAssistence() {
   const [session, loading] = useSession();
   const router = useRouter();
 
-  if (typeof window !== "undefined" && loading)
-    return <Loading show={loading} />;
-
-  if (!session) {
-    return signIn(null, {
-      callbackUrl: `${
-        process.env.NODE_ENV === "production"
-          ? "https://thesimpletech.com.br"
-          : "http://localhost:3000"
-      }${router.pathname}`,
-    });
-  }
+  useEffect(() => {
+    if (!loading && !session) {
+      signIn(null, {
+        callbackUrl: `${process.env.NODE_ENV === 'production' ? 'https://thesimpletech.com.br' : 'http://localhost:3000'}${router.pathname}`,
+      });
+    }
+  }, [session, loading]);
 
   const [inputData, setInputData] = useState({
     deviceType: "",
@@ -130,13 +125,7 @@ export default function RequestAssistence() {
           <button type="submit"> Solicitar </button>
         </form>
       </CenterBox>
+      <Loading show={loading}/>
     </Container>
   );
-}
-
-export async function getServerSideProps(context) {
-  const session = await getSession(context);
-  return {
-    props: { session },
-  };
 }
