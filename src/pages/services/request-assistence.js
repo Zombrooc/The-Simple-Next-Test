@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { signIn, useSession } from "next-auth/client";
+import { signIn, useSession, getSession } from "next-auth/client";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import {
@@ -14,13 +14,18 @@ export default function RequestAssistence() {
   const [session, loading] = useSession();
   const router = useRouter();
 
-  useEffect(() => {
-    if (!session) {
-      signIn(null, {
-        callbackUrl: `${process.env.NODE_ENV === 'production' ? 'https://thesimpletech.com.br' : 'http://localhost:3000'}${router.pathname}`,
-      });
-    }
-  }, [session]);
+  if (typeof window !== "undefined" && loading)
+    return <Loading show={loading} />;
+
+  if (!session) {
+    return signIn(null, {
+      callbackUrl: `${
+        process.env.NODE_ENV === "production"
+          ? "https://thesimpletech.com.br"
+          : "http://localhost:3000"
+      }${router.pathname}`,
+    });
+  }
 
   const [inputData, setInputData] = useState({
     deviceType: "",
@@ -125,7 +130,13 @@ export default function RequestAssistence() {
           <button type="submit"> Solicitar </button>
         </form>
       </CenterBox>
-      <Loading show={loading}/>
     </Container>
   );
+}
+
+export async function getServerSideProps(context) {
+  const session = await getSession(context);
+  return {
+    props: { session },
+  };
 }
