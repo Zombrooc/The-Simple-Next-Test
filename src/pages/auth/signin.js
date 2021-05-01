@@ -92,7 +92,9 @@ export default function SignIn({ csrfToken, providers }) {
           .map((provider) => (
             <div key={provider.name} style={{ width: "100%" }}>
               <button
-                onClick={() => signIn(provider.id)}
+                onClick={() => signIn(provider.id, {
+                  callbackUrl: router.query.callbackUrl
+                })}
                 style={{
                   width: "100%",
                   display: "flex",
