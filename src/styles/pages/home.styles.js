@@ -6,7 +6,7 @@ export const Container = styled.div`
 
 export const CardContainer = styled.div`
   width: 100%;
-  background: var(--color-dark);
+  background: var(--color-light);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -117,6 +117,12 @@ export const Landing = styled.div`
   height: 100vh;
   padding-top: 2.54rem;
 
+  background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+  
+
   canvas {
     display: block;
   }
@@ -126,8 +132,7 @@ export const Landing = styled.div`
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-light);
-    z-index: -4;
+    padding: 0 80px;
   }
 `;
 
@@ -138,7 +143,7 @@ export const Content = styled.div`
   position: relative;
   padding: 20px;
 
-  color: var(--color-dark);
+  color: var(--color-light);
 
   text-align: center;
 
@@ -172,7 +177,6 @@ export const Content = styled.div`
 
       @media screen and (max-width: 550px) {
         color: var(--color-light);
-        background: transparent;
       }
     }
   }
@@ -372,7 +376,7 @@ export const Title = styled.div`
   padding-bottom: 25px;
 
   a {
-    color: var(--color-dark);
+    color: var(--color-light);
   }
 
   p {

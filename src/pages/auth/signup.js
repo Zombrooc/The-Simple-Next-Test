@@ -90,7 +90,7 @@ export default function SignUp({ csrfToken, providers }) {
   return (
     <>
       <Head>
-        <title>The Simple | Cadastro</title>
+        <title>Criar conta - The Simple TECH</title>
       </Head>
       <Container>
         <div className="pushBack" onClick={() => router.push("/")}>

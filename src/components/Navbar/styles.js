@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Nav = styled.nav`
   width: 100%;
   height: 65px;
-  background: var(--color-light);
+  background: var(--color-dark);
   display: flex;
 
   z-index: 4444;
@@ -38,7 +38,7 @@ export const Title = styled.div`
   font-weight: 100;
 
   a {
-    color: var(--color-dark);
+    color: var(--color-light);
   }
 
   p {
@@ -109,7 +109,7 @@ export const MenuItem = styled.div`
     display: flex;
     flex-direction: row;
     cursor: pointer;
-    color: var(--color-dark);
+    color: var(--color-light);
     font-size: 0.8rem;
 
     &:hover:not(.active) {
@@ -146,12 +146,17 @@ export const MenuItem = styled.div`
     &:not(:first-child) {
       margin-top: 15px;
     }
+
+    a {
+    color: var(--color-light) !important;
+
+    }
   }
 `;
 
 export const ToggleButton = styled.div`
   font-size: 35px;
-  color: var(--color-light) !important;
+  color: var(--color-dark) !important;
   display: flex;
   justify-content: flex-end;
   align-items: center;

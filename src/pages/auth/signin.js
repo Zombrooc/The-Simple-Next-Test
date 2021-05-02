@@ -27,7 +27,7 @@ export default function SignIn({ csrfToken, providers }) {
   return (
     <Container>
       <Head>
-        <title> The Simple - Entrar </title>
+        <title> Entrar - The Simple TECH</title>
       </Head>
       <div className="pushBack" onClick={() => router.push("/")}>
         <AiOutlineArrowLeft />    Voltar para o início
