@@ -52,8 +52,8 @@ export default createGlobalStyle`
   }
 
   body {
-    color: var(--color-dark);
-    background: var(--color-light);
+    color: var(--color-light);
+    background: var(--color-dark);
     -webkit-font-smoothing: antialiased !important;
   }
 

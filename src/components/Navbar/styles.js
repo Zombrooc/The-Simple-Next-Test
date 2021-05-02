@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Nav = styled.nav`
   width: 100%;
   height: 65px;
-  background: var(--color-dark);
+  background: var(--color-light);
   display: flex;
 
   z-index: 4444;
@@ -38,7 +38,7 @@ export const Title = styled.div`
   font-weight: 100;
 
   a {
-    color: var(--color-light);
+    color: var(--color-dark);
   }
 
   p {
@@ -79,7 +79,7 @@ export const Menu = styled.div`
     overflow: hidden;
 
     a {
-      color: #fff;
+      color: var(--color-dark);
     }
 
     span.username {
@@ -109,11 +109,11 @@ export const MenuItem = styled.div`
     display: flex;
     flex-direction: row;
     cursor: pointer;
-    color: var(--color-light);
+    color: var(--color-dark);
     font-size: 0.8rem;
 
     &:hover:not(.active) {
-      color: #fff;
+      color: var(--color-dark);
     }
 
     &.active {
@@ -131,12 +131,13 @@ export const MenuItem = styled.div`
 
         &:hover {
           background: transparent;
-          color: var(--color-light) !important;
+          color: var(--color-danger) !important;
         }
       }
 
       &:hover {
         background: transparent;
+        color: var(--color-danger) !important;
       }
     }
   }

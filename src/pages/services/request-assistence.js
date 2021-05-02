@@ -91,7 +91,7 @@ export default function RequestAssistence() {
               <option value="others"> Outros.. </option>
             </select>
           </label>
-          <label>
+          {/* <label>
             Marca
             <input
               name="brand"
@@ -110,7 +110,7 @@ export default function RequestAssistence() {
               onChange={handleInput}
               value={inputData.model}
             />
-          </label>
+          </label> */}
           <label>
             Descrição do problema
             <textarea

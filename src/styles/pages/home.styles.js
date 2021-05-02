@@ -6,7 +6,7 @@ export const Container = styled.div`
 
 export const CardContainer = styled.div`
   width: 100%;
-  background: var(--color-light);
+  background: var(--color-dark);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,6 +40,7 @@ export const CardContainer = styled.div`
     align-items: center;
     z-index: 1;
     transform: translateY(100px);
+    border: 1px solid #ddd;
   }
 
   .container .card:hover .face.face1 {
@@ -125,7 +126,7 @@ export const Landing = styled.div`
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: #2e2e2e;
+    background-color: var(--color-light);
     z-index: -4;
   }
 `;
@@ -137,7 +138,7 @@ export const Content = styled.div`
   position: relative;
   padding: 20px;
 
-  color: var(--color-light);
+  color: var(--color-dark);
 
   text-align: center;
 
@@ -165,7 +166,7 @@ export const Content = styled.div`
       transition: color 0.5s, background 0.5s;
 
       &:hover {
-        color: var(--color-light);
+        color: var(--color-danger);
         background: transparent;
       }
 
@@ -371,7 +372,7 @@ export const Title = styled.div`
   padding-bottom: 25px;
 
   a {
-    color: var(--color-light);
+    color: var(--color-dark);
   }
 
   p {
