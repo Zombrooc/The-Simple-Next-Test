@@ -1,8 +1,8 @@
 import styled, { keyframes } from "styled-components";
 
-export const Container = styled.div`
-  
-`;
+import BG from "../../assets/images/stacked-waves-haikei.svg";
+
+export const Container = styled.div``;
 
 export const CardContainer = styled.div`
   width: 100%;
@@ -29,7 +29,6 @@ export const CardContainer = styled.div`
     width: 300px;
     height: 200px;
     transition: 0.5s;
-
   }
 
   .container .card .face.face1 {
@@ -84,7 +83,6 @@ export const CardContainer = styled.div`
     box-sizing: border-box;
     transform: translateY(-100px);
     border: 1px solid #ddd;
-
   }
 
   .container .card:hover .face.face2 {
@@ -117,22 +115,20 @@ export const Landing = styled.div`
   height: 100vh;
   padding-top: 2.54rem;
 
-  background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
-  
-
   canvas {
     display: block;
   }
 
   #tsparticles {
-    position: fixed;
-    top: 0;
     width: 100%;
     height: 100%;
     padding: 0 80px;
+    z-index: -4444;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    /* background-attachment: fixed; */
+    background-image: url(${BG});
   }
 `;
 
@@ -140,8 +136,10 @@ export const Content = styled.div`
   width: 100%;
   min-height: 100%;
   height: 100%;
-  position: relative;
+  /* position: relative; */
   padding: 20px;
+  position: absolute;
+  top: 0;
 
   color: var(--color-light);
 

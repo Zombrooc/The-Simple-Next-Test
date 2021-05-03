@@ -8,7 +8,6 @@ import Navbar from "../components/Navbar";
 import Particles from "react-particles-js";
 import particlesConfig from "../config/particles.config.json";
 
-import BG from '../assets/images/stacked-waves-haikei.svg';
 import graficDesign from "../assets/images/grafic-design.svg";
 import computerRepair from "../assets/images/computerRepair.svg";
 import programming from "../assets/images/programming.svg";
@@ -31,8 +30,8 @@ export default function Home() {
         <title>The Simple TECH</title>
       </Head>
       <Navbar />
-      <Landing style={{ backgroundImage: `url(${BG})` }}>
-        <Particles params={particlesConfig}/>
+      <Landing>
+        <Particles params={particlesConfig} />
         <Content>
           <h1>
             <Title>
@@ -148,7 +147,9 @@ export default function Home() {
                     Desenvolvimento Web do básico ao avançado, Design e muito{" "}
                     <span style={{ color: "var(--color-danger)" }}>+</span>.
                   </p>
-                  <a href="https://wa.me/message/FD6P356HWLEVH1">Agendar horário</a>
+                  <a href="https://wa.me/message/FD6P356HWLEVH1">
+                    Agendar horário
+                  </a>
                 </div>
               </div>
             </div>

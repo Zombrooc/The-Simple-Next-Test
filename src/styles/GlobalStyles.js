@@ -4,8 +4,10 @@ export default createGlobalStyle`
   :root {
     --color-success: #32d15d;
     --color-attention: #e8dc2e;
-    --color-danger: #eb4034;
-    --color-dark: #2e2e2e;
+    /* --color-danger: #eb4034; */
+    --color-danger: #ff5555;
+    /* --color-dark: #2e2e2e; */
+    --color-dark: #282a36;
     --color-info: #24b0e3;
     --color-light: #f5f5f5;
 
@@ -101,7 +103,7 @@ export default createGlobalStyle`
   }
 
   input:focus {
-    border-color: #111;
+    border-color: var(--color-dark);
   }
 
   input.hasError {
@@ -110,8 +112,8 @@ export default createGlobalStyle`
 
   button {
     display: block;
-    background: #111;
-    color: #fff;
+    background: var(--color-dark);
+    color: var(--color-light);
     border: 0;
     cursor: pointer;
     border-radius: 4px;
@@ -123,6 +125,6 @@ export default createGlobalStyle`
   }
 
   button:hover {
-    background-color: #000;
+    background-color: #2e2e2e;
   }
 `;

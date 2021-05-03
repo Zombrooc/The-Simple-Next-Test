@@ -95,7 +95,7 @@ function Footer() {
         </ul>
 
         <div className="legal">
-          <p>&copy; 2021 The Simple TECH. Todos os direitos reservados.</p>
+          <p>&copy; 2021 The Simple TECH. CNPJ: 40.783.021/0001-45. Todos os direitos reservados.</p>
         </div>
       </footer>
     </Container>

@@ -113,7 +113,7 @@ export const MenuItem = styled.div`
     font-size: 0.8rem;
 
     &:hover:not(.active) {
-      color: var(--color-dark);
+      text-decoration: underline;
     }
 
     &.active {
@@ -148,7 +148,7 @@ export const MenuItem = styled.div`
     }
 
     a {
-    color: var(--color-light) !important;
+      color: var(--color-light) !important;
 
     }
   }
