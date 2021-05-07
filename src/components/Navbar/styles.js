@@ -32,22 +32,11 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.div`
-  font-style: italic;
-  font-size: 1.5rem;
-  font-family: "Pacifico";
-  font-weight: 100;
 
-  a {
-    color: var(--color-light);
-  }
-
-  p {
-    margin: 0 !important;
-    line-height: 0 !important;
-
-    span {
-      font-family: "JetBrains Mono" !important;
-    }
+  img {
+    /* margin: 0 !important; */
+    
+    width: 15rem;
   }
 
   @media screen and (max-width: 961px) {
@@ -55,7 +44,9 @@ export const Title = styled.div`
   }
 
   @media screen and (max-width: 340px) {
-    font-size: 1.2rem;
+    img {
+      width: 10rem;
+    }
   }
 `;
 

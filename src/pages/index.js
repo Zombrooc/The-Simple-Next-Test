@@ -12,6 +12,7 @@ import graficDesign from "../assets/images/grafic-design.svg";
 import computerRepair from "../assets/images/computerRepair.svg";
 import programming from "../assets/images/programming.svg";
 import privateLessons from "../assets/images/privateLessons.svg";
+import logoWithTagline from "../assets/images/logoWithTagline.svg";
 
 import Footer from "../components/Footer";
 
@@ -33,23 +34,13 @@ export default function Home() {
       <Landing>
         <Particles params={particlesConfig} />
         <Content>
-          <h1>
-            <Title>
-              <p className="glitch">
-                The Simple <span>TECH {"\u003c\u002f\u003e"}</span>
-              </p>
-              <p className="glitch">
-                The Simple <span>TECH {"\u003c\u002f\u003e"}</span>
-              </p>
-              <p className="glitch">
-                The Simple <span>TECH {"\u003c\u002f\u003e"}</span>
-              </p>
-            </Title>
-          </h1>
-          <hr />
-          <h2 className="brand">
+          <Title>
+            <img src={logoWithTagline} alt="The Simple TECH" />
+          </Title>
+          {/* <hr /> */}
+          {/* <h2 className="brand">
             Soluções em tecnologia de uma maneira simples e rápida 
-          </h2>
+          </h2> */}
           <div className="callToAction">
             <ScrollLink
               to="ourServices"

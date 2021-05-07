@@ -5,6 +5,8 @@ import { MdClose, MdMenu } from "react-icons/md";
 
 import useWindowSize from "../useWindowSize.js";
 
+import logoWithoutTagline from '../../assets/images/logoWithoutTagline.svg';
+
 import {
   Nav,
   Container,
@@ -37,9 +39,7 @@ function Navbar() {
         <Title>
           <Link href="/">
             <a>
-              <p>
-                The Simple <span>TECH</span>
-              </p>
+              <img src={logoWithoutTagline} alt="The Simple TECH"/>
             </a>
           </Link>
         </Title>

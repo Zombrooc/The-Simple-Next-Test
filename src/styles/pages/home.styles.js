@@ -179,25 +179,20 @@ export const Content = styled.div`
     }
   }
 
-  div.dev {
-    font-size: 5rem;
-    margin-bottom: 25px;
-  }
-
-  hr {
+  /* hr {
     width: 65%;
-  }
+  } */
 
-  h2.brand {
+  /* h2.brand {
     font-size: 2rem;
     margin-top: 15px;
-  }
+  } */
 
-  @media screen and (max-width: 550px) {
+  /* @media screen and (max-width: 550px) {
     p.brand {
       font-size: 1.5rem;
     }
-  }
+  } */
 `;
 
 const glitchEffect = keyframes`
@@ -366,49 +361,20 @@ const glitchEffect3 = keyframes`
 `;
 
 export const Title = styled.div`
-  font-style: italic;
-  font-size: 4rem;
-  font-family: "Pacifico";
-  font-weight: 100;
-  margin-bottom: 25px;
-  padding-bottom: 25px;
+  width: 100%;
+  img {
+    width: 70vw;
 
-  a {
-    color: var(--color-light);
-  }
-
-  p {
-    margin: 0 !important;
-    line-height: 0 !important;
-
-    span {
-      font-family: "JetBrains Mono" !important;
-    }
-
-    &.glitch {
-      animation: 2.5s ${glitchEffect} infinite;
-
-      &:nth-child(2) {
-        color: #67f3da;
-        animation: 2.5s ${glitchEffect2} infinite;
-      }
-
-      &:nth-child(3) {
-        color: #f16f6f;
-        animation: 2.5s ${glitchEffect3} infinite;
-      }
+    @media screen and (max-width: 590px) {
+      width: 90vw;
     }
   }
 
-  @media screen and (max-width: 590px) {
-    font-size: 3rem;
-  }
-
-  @media screen and (max-width: 460px) {
+  /*@media screen and (max-width: 460px) {
     font-size: 2rem;
   }
 
   @media screen and (max-width: 320px) {
     font-size: 1.5rem;
-  }
+  } */
 `;
