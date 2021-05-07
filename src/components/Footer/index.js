@@ -56,9 +56,10 @@ function Footer() {
               </li>
 
               <li>
-                <Link href="/services/request-assistence">
+                {/* <Link href="/services/request-assistence">
                   <a>Assistência Técnica</a>
-                </Link>
+                </Link> */}
+                <a href="https://wa.me/message/FD6P356HWLEVH1"> Assistência Técnica </a>
               </li>
 
               <li>
