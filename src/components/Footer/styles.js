@@ -19,11 +19,11 @@ export const Container = styled.div`
     margin-bottom: 2em;
   }
 
-  .footer__logo {
+  /* .footer__logo {
     font-family: Pacifico, cursive;
     font-weight: 400;
     font-size: 1.5rem;
-  }
+  } */
 
   .footer__addr h2 {
     margin-top: 1.3em;

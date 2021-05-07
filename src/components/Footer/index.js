@@ -1,6 +1,8 @@
 import React from "react";
 import Link from 'next/link';
 
+import logoWithTagline from '../../assets/images/logoWithTagline-Dark.svg';
+
 import { Container } from "./styles.js";
 
 function Footer() {
@@ -9,8 +11,9 @@ function Footer() {
       <footer className="footer">
         <div className="footer__addr">
           <h1 className="footer__logo">
-            The Simple{" "}
-            <span style={{ fontFamily: "JetBrains Mono" }}>TECH</span>
+            {/* The Simple{" "}
+            <span style={{ fontFamily: "JetBrains Mono" }}>TECH</span> */}
+            <img src={logoWithTagline} alt="The Simple TECH"/>
           </h1>
 
           <h2>Contato</h2>
