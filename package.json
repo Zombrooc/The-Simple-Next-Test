@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint \"src/**/*.(js|js|tsx)\"",
+    "format": "prettier \"src/**/*.*(js|js|tsx)\" --write"
   },
   "dependencies": {
     "axios": "^0.21.1",
@@ -24,5 +26,20 @@
     "styled-components": "^5.2.3",
     "styled-reset": "^4.3.4",
     "yup": "^0.32.9"
+  },
+  "devDependencies": {
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/**/*.{ts, js, jsx, tsx}": [
+      "yarn lint --fix",
+      "yarn format"
+    ]
   }
 }
