@@ -187,7 +187,7 @@ export const Content = styled.div`
   }
 
   @media screen and (max-width: 550px) {
-    p.brand {
+    h2.brand {
       font-size: 1rem;
     }
   }
