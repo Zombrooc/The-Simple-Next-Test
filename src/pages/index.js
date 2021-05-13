@@ -35,12 +35,18 @@ export default function Home() {
         <Particles params={particlesConfig} />
         <Content>
           <Title>
-            <img src={logoWithTagline} alt="The Simple TECH" />
+            <h1>
+              {" "}
+              Soluções em técnologia de maneira rápida <br /> e eficaz{" "}
+            </h1>
+            {/* <img src={logoWithTagline} alt="The Simple TECH" /> */}
           </Title>
-          {/* <hr /> */}
-          {/* <h2 className="brand">
-            Soluções em tecnologia de uma maneira simples e rápida 
-          </h2> */}
+          <hr />
+          <h2 className="brand">
+            {" "}
+            Assistência Técnica, Marketing Digital, Desenvolvimento Web e muito{" "}
+            <span style={{ color: "var(--color-danger)" }}> + </span>
+          </h2>
           <div className="callToAction">
             <ScrollLink
               to="ourServices"

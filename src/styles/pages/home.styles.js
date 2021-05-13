@@ -179,202 +179,59 @@ export const Content = styled.div`
     }
   }
 
-  /* hr {
+  hr {
     width: 65%;
-  } */
+  }
 
-  /* h2.brand {
-    font-size: 2rem;
+  h2.brand {
+    font-size: 1.5rem;
     margin-top: 15px;
-  } */
+  }
 
-  /* @media screen and (max-width: 550px) {
+  @media screen and (max-width: 550px) {
     p.brand {
-      font-size: 1.5rem;
+      font-size: 1rem;
     }
-  } */
-`;
-
-const glitchEffect = keyframes`
-  0% {
-    transform: none;
-    opacity: 1;
-  }
-  7% {
-    transform: skew(-0.5deg, -0.9deg);
-    opacity: 0.75;
-  }
-  10% {
-    transform: none;
-    opacity: 1;
-  }
-  27% {
-    transform: none;
-    opacity: 1;
-  }
-  30% {
-    transform: skew(0.8deg, -0.1deg);
-    opacity: 0.75;
-  }
-  35% {
-    transform: none;
-    opacity: 1;
-  }
-  52% {
-    transform: none;
-    opacity: 1;
-  }
-  55% {
-    transform: skew(-1deg, 0.2deg);
-    opacity: 0.75;
-  }
-  50% {
-    transform: none;
-    opacity: 1;
-  }
-  72% {
-    transform: none;
-    opacity: 1;
-  }
-  75% {
-    transform: skew(0.4deg, 1deg);
-    opacity: 0.75;
-  }
-  80% {
-    transform: none;
-    opacity: 1;
-  }
-  100% {
-    transform: none;
-    opacity: 1;
-  }
-`;
-
-const glitchEffect2 = keyframes`
-  0% {
-    transform: none;
-    opacity: 0.25;
-  }
-  7% {
-    transform: translate(-2px, -3px);
-    opacity: 0.5;
-  }
-  10% {
-    transform: none;
-    opacity: 0.25;
-  }
-  27% {
-    transform: none;
-    opacity: 0.25;
-  }
-  30% {
-    transform: translate(-5px, -2px);
-    opacity: 0.5;
-  }
-  35% {
-    transform: none;
-    opacity: 0.25;
-  }
-  52% {
-    transform: none;
-    opacity: 0.25;
-  }
-  55% {
-    transform: translate(-5px, -1px);
-    opacity: 0.5;
-  }
-  50% {
-    transform: none;
-    opacity: 0.25;
-  }
-  72% {
-    transform: none;
-    opacity: 0.25;
-  }
-  75% {
-    transform: translate(-2px, -6px);
-    opacity: 0.5;
-  }
-  80% {
-    transform: none;
-    opacity: 0.25;
-  }
-  100% {
-    transform: none;
-    opacity: 0.25;
-  }
-`;
-
-const glitchEffect3 = keyframes`
-  0% {
-    transform: none;
-    opacity: 0.25;
-  }
-  7% {
-    transform: translate(2px, 3px);
-    opacity: 0.5;
-  }
-  10% {
-    transform: none;
-    opacity: 0.25;
-  }
-  27% {
-    transform: none;
-    opacity: 0.25;
-  }
-  30% {
-    transform: translate(5px, 2px);
-    opacity: 0.5;
-  }
-  35% {
-    transform: none;
-    opacity: 0.25;
-  }
-  52% {
-    transform: none;
-    opacity: 0.25;
-  }
-  55% {
-    transform: translate(5px, 1px);
-    opacity: 0.5;
-  }
-  50% {
-    transform: none;
-    opacity: 0.25;
-  }
-  72% {
-    transform: none;
-    opacity: 0.25;
-  }
-  75% {
-    transform: translate(2px, 6px);
-    opacity: 0.5;
-  }
-  80% {
-    transform: none;
-    opacity: 0.25;
-  }
-  100% {
-    transform: none;
-    opacity: 0.25;
   }
 `;
 
 export const Title = styled.div`
-  width: 100%;
-  img {
+  /* width: 100%; */
+  margin: 0 auto;
+  /* text-align: center; */
+  padding: 15px;
+
+  h1 {
+    /* width: 50%; */
+    font-size: 4rem;
+  }
+
+  /* h2 {
+    font-size: 1.5rem;
+  } */
+  /* img {
     width: 70vw;
 
     @media screen and (max-width: 590px) {
       width: 90vw;
     }
+  } */
+
+  @media screen and (max-width: 590px) {
+    h1 {
+      font-size: 2.5rem;
+    }
   }
 
-  /*@media screen and (max-width: 460px) {
-    font-size: 2rem;
+  @media screen and (max-width: 460px) {
+    h1 {
+      font-size: 2rem;
+    }
   }
 
   @media screen and (max-width: 320px) {
-    font-size: 1.5rem;
-  } */
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
 `;
