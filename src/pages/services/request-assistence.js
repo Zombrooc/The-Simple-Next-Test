@@ -17,32 +17,14 @@ export default function RequestAssistence() {
   useEffect(() => {
     if (!loading && !session) {
       signIn(null, {
-        callbackUrl: `${process.env.NODE_ENV === 'production' ? 'https://thesimpletech.com.br' : 'http://localhost:3000'}${router.pathname}`,
+        callbackUrl: `${
+          process.env.NODE_ENV === "production"
+            ? "https://thesimpletech.com.br"
+            : "http://localhost:3000"
+        }${router.pathname}`,
       });
     }
   }, [session, loading]);
-
-  const [inputData, setInputData] = useState({
-    deviceType: "",
-    brand: "",
-    model: "",
-    problemDescription: "",
-  });
-
-  const handleInput = (event) => {
-    setInputData({
-      ...inputData,
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    console.log(inputData);
-
-    return true;
-  };
 
   return (
     <Container>
@@ -73,15 +55,18 @@ export default function RequestAssistence() {
 
         <hr />
 
-        <form onSubmit={handleSubmit}>
-          <label>
+        <form
+          action="https://formcarry.com/s/8DcdRmYIA2N"
+          method="POST"
+          accept-charset="UTF-8"
+        >
+          <input type="hidden" name="_gotcha" />
+          <label htmlFor="deviceType">
             {" "}
             Tipo de Equipamento
             <select
               name="deviceType"
               placeholder="Selecione o tipo de equipamento"
-              onChange={handleInput}
-              value={inputData.deviceType}
               required={true}
             >
               <option> Selecione o tipo de equipamento </option>
@@ -111,13 +96,10 @@ export default function RequestAssistence() {
               value={inputData.model}
             />
           </label> */}
-          <label>
+          <label htmlFor="problemDescription">
             Descrição do problema
             <textarea
               name="problemDescription"
-              type="text"
-              onChange={handleInput}
-              value={inputData.problemDescription}
               required={true}
               placeholder="Nos de uma pequena descrição sobre o que você precisa."
             />
@@ -125,7 +107,7 @@ export default function RequestAssistence() {
           <button type="submit"> Solicitar </button>
         </form>
       </CenterBox>
-      <Loading show={loading}/>
+      <Loading show={loading} />
     </Container>
   );
 }
