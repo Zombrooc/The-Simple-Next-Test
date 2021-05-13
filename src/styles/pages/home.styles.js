@@ -127,7 +127,6 @@ export const Landing = styled.div`
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-    /* background-attachment: fixed; */
     background-image: url(${BG});
   }
 `;
@@ -136,7 +135,6 @@ export const Content = styled.div`
   width: 100%;
   min-height: 100%;
   height: 100%;
-  /* position: relative; */
   padding: 20px;
   position: absolute;
   top: 0;
@@ -198,24 +196,11 @@ export const Content = styled.div`
 export const Title = styled.div`
   /* width: 100%; */
   margin: 0 auto;
-  /* text-align: center; */
   padding: 15px;
 
   h1 {
-    /* width: 50%; */
     font-size: 4rem;
   }
-
-  /* h2 {
-    font-size: 1.5rem;
-  } */
-  /* img {
-    width: 70vw;
-
-    @media screen and (max-width: 590px) {
-      width: 90vw;
-    }
-  } */
 
   @media screen and (max-width: 590px) {
     h1 {
