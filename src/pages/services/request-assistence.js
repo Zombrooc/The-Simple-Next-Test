@@ -13,6 +13,10 @@ import Loading from "../../components/Loading";
 
 export default function RequestAssistence() {
   const [session, loading] = useSession();
+
+  const userName = session?.user.name;
+  const userEmail = session?.user.email;
+
   const router = useRouter();
 
   useEffect(() => {
@@ -61,13 +65,12 @@ export default function RequestAssistence() {
         <hr />
 
         <form
-          // action="https://formcarry.com/s/8DcdRmYIA2N"
-          // method="POST"
-          // accept-charset="UTF-8"
           className="kwes-form"
           action="https://kwes.io/api/foreign/forms/sm4deYYqXS7sXYikSqvq"
         >
           <input type="hidden" name="_gotcha" />
+          <input type="hidden" name="name" value={userName} />
+          <input type="hidden" name="email" value={userEmail} />
           <label htmlFor="deviceType">
             {" "}
             Tipo de Equipamento
@@ -75,6 +78,7 @@ export default function RequestAssistence() {
               name="deviceType"
               placeholder="Selecione o tipo de equipamento"
               required={true}
+              rules="required"
             >
               <option> Selecione o tipo de equipamento </option>
               <option value="desktop"> Desktop (Computador de mesa) </option>
@@ -83,37 +87,48 @@ export default function RequestAssistence() {
               <option value="others"> Outros.. </option>
             </select>
           </label>
-          {/* <label>
+          <label style={{ display: "flex", justifyContent: "flex-start" }}>
+            <input
+              style={{ width: "inherit", marginRight: "5px" }}
+              type="checkbox"
+              name="formatDevice"
+              value="formatDevice"
+            />
+            Formatar
+          </label>
+          <label style={{ display: "flex", justifyContent: "flex-start" }}>
+            <input
+              style={{ width: "inherit", marginRight: "5px" }}
+              type="checkbox"
+              name="repairDevice"
+            />
+            Reparo de equipamento
+          </label>
+          <label>
             Marca
             <input
               name="brand"
               type="text"
-              onChange={handleInput}
-              value={inputData.brand}
               required={true}
               placeholder="Ex: Acer, HP, Dell, LeNovo..."
             />
           </label>
           <label>
             Modelo (opcional)
-            <input
-              name="model"
-              type="text"
-              onChange={handleInput}
-              value={inputData.model}
-            />
-          </label> */}
+            <input name="model" type="text" />
+          </label>
           <label htmlFor="problemDescription">
             Descrição do problema
             <textarea
               name="problemDescription"
-              required={true}
-              placeholder="Nos de uma pequena descrição sobre o que você precisa."
+              rules="required"
+              placeholder="Nos dê uma pequena descrição sobre o que você precisa."
             />
           </label>
           <button type="submit"> Solicitar </button>
         </form>
       </CenterBox>
+
       <Loading show={loading} />
     </Container>
   );

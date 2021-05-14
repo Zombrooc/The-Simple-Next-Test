@@ -4,9 +4,7 @@ export default createGlobalStyle`
   :root {
     --color-success: #32d15d;
     --color-attention: #e8dc2e;
-    /* --color-danger: #eb4034; */
     --color-danger: #ff5555;
-    /* --color-dark: #2e2e2e; */
     --color-dark: #282a36;
     --color-info: #24b0e3;
     --color-light: #f5f5f5;
@@ -74,7 +72,7 @@ export default createGlobalStyle`
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: stretch;
+    /* align-items: stretch; */
   }
 
   label {

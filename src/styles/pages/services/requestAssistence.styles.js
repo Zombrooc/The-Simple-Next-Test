@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   position: relative;
 
@@ -37,6 +37,7 @@ export const CenterBox = styled.div`
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 6px;
+  margin: 20px;
   padding: 20px 40px;
   display: flex;
   justify-content: center;
