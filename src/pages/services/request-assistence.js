@@ -18,7 +18,7 @@ export default function RequestAssistence() {
   useEffect(() => {
     kwesforms.init();
   }, []);
-  
+
   useEffect(() => {
     if (!loading && !session) {
       signIn(null, {
@@ -65,7 +65,7 @@ export default function RequestAssistence() {
           // method="POST"
           // accept-charset="UTF-8"
           className="kwes-form"
-          action="https://kwes.io/api/foreign/forms/zALOgQhUc29zd01D2LF2"
+          action="https://kwes.io/api/foreign/forms/sm4deYYqXS7sXYikSqvq"
         >
           <input type="hidden" name="_gotcha" />
           <label htmlFor="deviceType">
