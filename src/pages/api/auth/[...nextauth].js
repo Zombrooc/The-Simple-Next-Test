@@ -57,12 +57,15 @@ const options = {
 
             return user;
           };
-          if (user(credentials)) {
-            return user(credentials);
+
+          const userToBeLogged = user(credentials);
+
+          if (userToBeLogged) {
+            return userToBeLogged;
           }
         } catch (e) {
           const errorMessage = e.response.data.message;
-          // Redirecting to the login page with error message          in the URL
+          
           throw new Error(errorMessage + "&email=" + credentials.email);
         }
       },

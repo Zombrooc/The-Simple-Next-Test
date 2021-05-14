@@ -1725,6 +1725,11 @@ kareem@2.3.2:
   resolved "https://registry.yarnpkg.com/kareem/-/kareem-2.3.2.tgz#78c4508894985b8d38a0dc15e1a8e11078f2ca93"
   integrity sha512-STHz9P7X2L4Kwn72fA4rGyqyXdmrMSdxqHx9IXon/FXluXieaFA6KJ2upcHAHxQPQ0LeM/OjLrhFxifHewOALQ==
 
+kwesforms@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/kwesforms/-/kwesforms-2.1.2.tgz#3a56a9fe4863bf226356ab4dda49d40a03bdac80"
+  integrity sha512-DMml5FWDU7XU5xK+kwpL+Y0+mtIIO1VhTBPYqpS+FvttztqaOv1Ht6nRJCIWp2+RB0QpY7c3UQSEni73UL0b9A==
+
 line-column@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/line-column/-/line-column-1.0.2.tgz#d25af2936b6f4849172b312e4792d1d987bc34a2"

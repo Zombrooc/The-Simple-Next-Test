@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { signIn, useSession, getSession } from "next-auth/client";
+import kwesforms from "kwesforms";
+import { signIn, useSession } from "next-auth/client";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import {
@@ -14,6 +15,10 @@ export default function RequestAssistence() {
   const [session, loading] = useSession();
   const router = useRouter();
 
+  useEffect(() => {
+    kwesforms.init();
+  }, []);
+  
   useEffect(() => {
     if (!loading && !session) {
       signIn(null, {
@@ -56,9 +61,11 @@ export default function RequestAssistence() {
         <hr />
 
         <form
-          action="https://formcarry.com/s/8DcdRmYIA2N"
-          method="POST"
-          accept-charset="UTF-8"
+          // action="https://formcarry.com/s/8DcdRmYIA2N"
+          // method="POST"
+          // accept-charset="UTF-8"
+          className="kwes-form"
+          action="https://kwes.io/api/foreign/forms/zALOgQhUc29zd01D2LF2"
         >
           <input type="hidden" name="_gotcha" />
           <label htmlFor="deviceType">
