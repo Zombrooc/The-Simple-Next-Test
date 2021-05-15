@@ -21,7 +21,7 @@ export const Container = styled.div`
     cursor: pointer;
     box-shadow: 0ch;
     background: var(--color-light);
-    transition: .5s;
+    transition: 0.5s;
 
     &:hover {
       box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14),
@@ -115,7 +115,48 @@ export const CenterBox = styled.div`
     color: #fff;
   }
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     margin-top: 20vh;
+  }
+`;
+
+export const Success = styled.div`
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  text-align: center;
+  padding: 40px 0;
+  background: var(--color-light);
+  h1 {
+    color: var(--color-success);
+    font-family: Nunito;
+    font-weight: 900;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+  p {
+    color: var(--color-dark);
+    font-family: Nunito;
+    font-size: 20px;
+    margin: 0;
+  }
+  i {
+    color: var(--color-success);
+    font-size: 100px;
+    line-height: 200px;
+    margin-left: -15px;
+  }
+  .card {
+    background: white;
+    padding: 60px;
+    border-radius: 4px;
+    box-shadow: 0 2px 3px #c8d0d8;
+    display: inline-block;
+    margin: 0 auto;
   }
 `;

@@ -1,27 +1,30 @@
 import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import kwesforms from "kwesforms";
+import axios from "axios";
 import { signIn, useSession } from "next-auth/client";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
+import Loading from "../../components/Loading";
 import {
   Container,
   CenterBox,
+  Success,
 } from "../../styles/pages/services/requestAssistence.styles";
-import Loading from "../../components/Loading";
 
 export default function RequestAssistence() {
   const [session, loading] = useSession();
-
-  const userName = session?.user.name;
-  const userEmail = session?.user.email;
+  const [inputData, setInputData] = useState({
+    name: "",
+    email: "",
+    deviceType: "",
+    brand: "",
+    model: "",
+    formatDevice: false,
+    repairDevice: false,
+  });
 
   const router = useRouter();
-
-  useEffect(() => {
-    kwesforms.init();
-  }, []);
 
   useEffect(() => {
     if (!loading && !session) {
@@ -34,6 +37,84 @@ export default function RequestAssistence() {
       });
     }
   }, [session, loading]);
+
+  const handleInput = (event) => {
+    if (event.target.name === "formatDevice") {
+      return setInputData({
+        ...inputData,
+        formatDevice: !inputData.formatDevice,
+      });
+    }
+
+    if (event.target.name === "repairDevice") {
+      return setInputData({
+        ...inputData,
+        repairDevice: !inputData.repairDevice,
+      });
+    }
+
+    return setInputData({
+      ...inputData,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    const encodeForm = (data) => {
+      return Object.keys(data)
+        .map(
+          (key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+        )
+        .join("&");
+    };
+
+    axios
+      .post(
+        "https://formcarry.com/s/8DcdRmYIA2N",
+        encodeForm({
+          ...inputData,
+          name: session.user.name,
+          email: session.user.email,
+        }),
+        {
+          headers: { Accept: "application/json" },
+        }
+      )
+      .then(function (response) {
+        return (
+          <Success>
+            <div className="card">
+              <div
+                style={{
+                  borderRadius: "200px",
+                  height: "200px",
+                  width: "200px",
+                  background: "#F8FAF5",
+                  margin: "0 auto",
+                }}
+              >
+                <i className="checkmark">✓</i>
+              </div>
+              <h1>Sucesso!</h1>
+              <p>
+                Recebemos sua mensagem;
+                <br /> Logo entraremos em contato com você!
+              </p>
+              <button type="button" onClick={() => router.push("/")}>
+                {" "}
+                Retornar para a tela inicial{" "}
+              </button>
+            </div>
+          </Success>
+        );
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    return;
+  };
 
   return (
     <Container>
@@ -64,13 +145,8 @@ export default function RequestAssistence() {
 
         <hr />
 
-        <form
-          className="kwes-form"
-          action="https://kwes.io/api/foreign/forms/sm4deYYqXS7sXYikSqvq"
-        >
+        <form onSubmit={handleSubmit}>
           <input type="hidden" name="_gotcha" />
-          <input type="hidden" name="name" value={userName} />
-          <input type="hidden" name="email" value={userEmail} />
           <label htmlFor="deviceType">
             {" "}
             Tipo de Equipamento
@@ -78,7 +154,8 @@ export default function RequestAssistence() {
               name="deviceType"
               placeholder="Selecione o tipo de equipamento"
               required={true}
-              rules="required"
+              onChange={handleInput}
+              value={inputData.deviceType}
             >
               <option> Selecione o tipo de equipamento </option>
               <option value="desktop"> Desktop (Computador de mesa) </option>
@@ -92,7 +169,8 @@ export default function RequestAssistence() {
               style={{ width: "inherit", marginRight: "5px" }}
               type="checkbox"
               name="formatDevice"
-              value="formatDevice"
+              onChange={handleInput}
+              checked={inputData.formatDevice}
             />
             Formatar
           </label>
@@ -101,8 +179,10 @@ export default function RequestAssistence() {
               style={{ width: "inherit", marginRight: "5px" }}
               type="checkbox"
               name="repairDevice"
+              onChange={handleInput}
+              checked={inputData.repairDevice}
             />
-            Reparo de equipamento
+            Concertar de equipamento
           </label>
           <label>
             Marca
@@ -111,18 +191,27 @@ export default function RequestAssistence() {
               type="text"
               required={true}
               placeholder="Ex: Acer, HP, Dell, LeNovo..."
+              onChange={handleInput}
+              value={inputData.brand}
             />
           </label>
           <label>
             Modelo (opcional)
-            <input name="model" type="text" />
+            <input
+              name="model"
+              type="text"
+              onChange={handleInput}
+              value={inputData.model}
+            />
           </label>
           <label htmlFor="problemDescription">
             Descrição do problema
             <textarea
               name="problemDescription"
-              rules="required"
+              required={true}
               placeholder="Nos dê uma pequena descrição sobre o que você precisa."
+              onChange={handleInput}
+              value={inputData.problemDescription}
             />
           </label>
           <button type="submit"> Solicitar </button>
