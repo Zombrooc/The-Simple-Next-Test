@@ -43,7 +43,7 @@ function Navbar() {
             </a>
           </Link>
         </Title>
-        {/* <ToggleButton onClick={menuHandler}>
+        <ToggleButton onClick={menuHandler}>
           {!menuStatus && <MdMenu />}
         </ToggleButton>
         <Menu isOpen={menuStatus}>
@@ -81,7 +81,7 @@ function Navbar() {
               <a className="active"><strong>Solicitar Assistêcia Técnica</strong></a>
             </Link>
           </MenuItem>
-        </Menu> */}
+        </Menu>
       </Container>
     </Nav>
   );
