@@ -1,42 +1,16 @@
 import NextAuth from "next-auth";
-import Provider from "next-auth/providers";
-const { compareSync } = require("bcryptjs");
-
-import { connectToDatabase } from "../../../middleware/database";
+import Providers from "next-auth/providers";
+import axios from "axios";
 
 const options = {
-  callbacks: {
-    async signIn(user, account, profile) {
-      let isAllowedToSignIn = true;
-
-      if (
-        account.provider === "google" &&
-        profile.verified_email === true &&
-        profile.email.endsWith("@gmail.com")
-      ) {
-        return true;
-      }
-
-      if (!(await compareSync(profile.password, user.password))) {
-        return false;
-      }
-
-      if (isAllowedToSignIn) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-    async redirect(url, baseUrl) {
-      return url.startsWith(baseUrl) ? url : baseUrl;
-    },
-  },
-  pages: {
-    signIn: "/auth/signin",
-    error: "/auth/signin",
-  },
   providers: [
-    Provider.Credentials({
+    Providers.Google({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      authorizationUrl:
+        "https://accounts.google.com/o/oauth2/v2/auth?prompt=consent&access_type=offline&response_type=code",
+    }),
+    Providers.Credentials({
       name: "credentials",
       credentials: {
         email: {
@@ -49,13 +23,15 @@ const options = {
       authorize: async (credentials) => {
         try {
           const user = async (credentials) => {
-            const db = await connectToDatabase();
+            const response = await axios.post(
+              `${process.env.NEXT_PUBLIC_API_URL}/auth/local`,
+              {
+                identifier: credentials.email,
+                password: credentials.password,
+              }
+            );
 
-            const collection = db.collection("users");
-
-            const user = await collection.findOne({ email: credentials.email });
-
-            return user;
+            return response.data;
           };
 
           const userToBeLogged = user(credentials);
@@ -65,20 +41,54 @@ const options = {
           }
         } catch (e) {
           const errorMessage = e.response.data.message;
-          
+
           throw new Error(errorMessage + "&email=" + credentials.email);
         }
       },
     }),
-    Provider.Google({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      authorizationUrl:
-        "https://accounts.google.com/o/oauth2/v2/auth?prompt=consent&access_type=offline&response_type=code",
-    }),
   ],
+  database: process.env.NEXT_PUBLIC_DATABASE_URL,
   session: {
     jwt: true,
+  },
+  callbacks: {
+    session: async (session, token) => {
+      session.jwt = token.jwt;
+      session.id = token.id;
+
+      return Promise.resolve(session);
+    },
+    jwt: async (token, user, account) => {
+      const isSignIn = user ? true : false;
+
+      if (isSignIn) {
+        if (account.provider) {
+          const response = await axios.get(
+            `${process.env.NEXT_PUBLIC_API_URL}/auth/${account.provider}/callback?access_token=${account?.accessToken}`
+          );
+
+          const data = response.data;
+
+          token.jwt = data.jwt;
+          token.id = data.user.id;
+        } else {
+          token.id = user.user.id || user.id;
+          token.accessToken = user.jwt;
+          token.name = user.user.username || user.user.name;
+          token.image = user.user.image || user.image || null;
+          token.email = user.user.email;
+        }
+      }
+
+      return Promise.resolve(token);
+    },
+    async redirect(url, baseUrl) {
+      return url.startsWith(baseUrl) ? url : baseUrl;
+    },
+  },
+  pages: {
+    signIn: "/auth/signin",
+    error: "/auth/signin",
   },
 };
 

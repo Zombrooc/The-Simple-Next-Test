@@ -1,12 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { providers, signIn, getCsrfToken, useSession } from "next-auth/client";
+import {
+  providers,
+  signIn,
+  getCsrfToken,
+  getSession,
+} from "next-auth/client";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineArrowLeft } from "react-icons/ai";
-
-import Loading from "../../components/Loading";
 
 import {
   Container,
@@ -15,14 +18,7 @@ import {
 } from "../../styles/pages/auth/signin.styles";
 
 export default function SignIn({ csrfToken, providers }) {
-  const [session, loading] = useSession();
   const router = useRouter();
-
-  useEffect(() => {
-    if (session) {
-      router.back();
-    }
-  }, [session]);
 
   return (
     <Container>
@@ -63,9 +59,11 @@ export default function SignIn({ csrfToken, providers }) {
               marginBottom: "25px",
             }}
           >
-            Email ou senha incorreta. Por favor, tente novamente
+            Email/senha incorreta. Por favor, tente novamente ou efetue login
+            com o Google
           </div>
         )}
+
         <form method="post" action="/api/auth/callback/credentials">
           <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
           <label>
@@ -92,9 +90,11 @@ export default function SignIn({ csrfToken, providers }) {
           .map((provider) => (
             <div key={provider.name} style={{ width: "100%" }}>
               <button
-                onClick={() => signIn(provider.id, {
-                  callbackUrl: router.query.callbackUrl
-                })}
+                onClick={() =>
+                  signIn(provider.id, {
+                    callbackUrl: router.query.callbackUrl,
+                  })
+                }
                 style={{
                   width: "100%",
                   display: "flex",
@@ -108,15 +108,21 @@ export default function SignIn({ csrfToken, providers }) {
             </div>
           ))}
       </CenterBox>
-      <Loading show={loading} />
     </Container>
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps({ req }) {
+
+  const session = await getSession({ req });
+
+  if (session){
+    router.push('/')
+  }
+
   return {
     props: {
-      csrfToken: await getCsrfToken(context),
+      csrfToken: await getCsrfToken({ req }),
       providers: await providers(),
     },
   };

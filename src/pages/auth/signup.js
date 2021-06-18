@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { providers, signIn, getCsrfToken, useSession } from "next-auth/client";
+import { providers, signIn, getSession } from "next-auth/client";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 import Head from "next/head";
 import axios from "axios";
-
-import Loading from '../../components/Loading';
 
 import {
   Container,
@@ -17,30 +15,32 @@ import {
 } from "../../styles/pages/auth/signup.styles";
 
 const errors = {
-  409: `Já existe um usuário cadastrado com esse e-mail.`,
+  400: `Já existe um usuário cadastrado com esse e-mail.`,
   1: "As senhas digitadas não combinam",
 };
 
-export default function SignUp({ csrfToken, providers }) {
+export default function SignUp({ providers }) {
   const router = useRouter();
-
-  const [session, loading] = useSession();
-
-  useEffect(() => {
-    if (session) {
-      router.back();
-    }
-  }, [session]);
 
   const [errorStatus, setErrorStatus] = useState();
   const [inputData, setInputData] = useState({
-    name: "",
+    username: "",
     email: "",
     password: "",
     confirm_password: "",
   });
 
   const handleInput = (event) => {
+    if (event.target.name === "confirm_password") {
+      if (!(inputData.password === inputData.confirm_password)) {
+        setErrorStatus(1);
+        setInputData({
+          ...inputData,
+          password: "",
+          confirm_password: "",
+        });
+      }
+    }
     setInputData({
       ...inputData,
       [event.target.name]: event.target.value,
@@ -50,41 +50,23 @@ export default function SignUp({ csrfToken, providers }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!(inputData.password === inputData.confirm_password)) {
-      setErrorStatus(1);
-      setInputData({
-        ...inputData,
-        password: "",
-        confirm_password: "",
-      });
-    } else {
-      axios
-        .post("/api/auth/signup", inputData)
-        .then((response) => {
-          if (response.status === 201) {
-            router.push("/auth/signin");
-          }
-        })
-        .catch((error) => {
-          setErrorStatus(error.response.status);
-
-          if (error.response.status === 409) {
-            setInputData({
-              ...inputData,
-              email: "",
-              password: "",
-              confirm_password: "",
-            });
-          } else {
-            setInputData({
-              name: "",
-              email: "",
-              password: "",
-              confirm_password: "",
-            });
-          }
-        });
+    const data = {
+      username: inputData.username || inputData.email.split('@')[0],
+      email: inputData.email,
+      password: inputData.password,
     }
+
+    axios
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/auth/local/register`, data)
+      .then((response) => {
+
+        if (response.status === 200){
+          router.push("/confirmation/email-sended");
+        }
+      })
+      .catch((error) => {
+        setErrorStatus(error.response.status);
+      });
   };
 
   return (
@@ -117,15 +99,13 @@ export default function SignUp({ csrfToken, providers }) {
           </h1>
           {errorStatus && <ErrorBox>{errors[errorStatus]}</ErrorBox>}
           <form onSubmit={handleSubmit}>
-            {/* <ImageInput name="image" label="Avatar" /> */}
-            <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
             <label>
               Nome
               <input
-                name="name"
+                name="username"
                 type="text"
                 onChange={handleInput}
-                value={inputData.name}
+                value={inputData.username}
                 required={true}
               />
             </label>
@@ -191,17 +171,22 @@ export default function SignUp({ csrfToken, providers }) {
               </div>
             ))}
         </CenterBox>
-        <Loading show={loading}/>
       </Container>
     </>
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps({ req }) {
+
+  const session = await getSession({req});
+
+  if (session){
+    router.push('/')
+  }
+
   return {
     props: {
-      csrfToken: await getCsrfToken(context),
-      providers: await providers(),
+      providers: await providers()
     },
   };
 }

@@ -70,7 +70,7 @@ function Navbar() {
                 </Link>
               </MenuItem>
               <MenuItem>
-                <a onClick={() => signOut()} className="active">
+                <a onClick={() => signOut()}>
                   Sair
                 </a>
               </MenuItem>

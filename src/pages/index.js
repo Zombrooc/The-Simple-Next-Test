@@ -37,15 +37,15 @@ export default function Home() {
           <Title>
             <h1>
               {" "}
-              Soluções em técnologia de maneira rápida <br /> e eficaz{" "}
+              Soluções em tecnologia de maneira rápida <br /> e eficaz{" "}
             </h1>
             {/* <img src={logoWithTagline} alt="The Simple TECH" /> */}
           </Title>
           <hr />
           <h2 className="brand">
             {" "}
-            Assistência Técnica, Marketing Digital, Desenvolvimento Web e muito{" "}
-            <span style={{ color: "var(--color-danger)" }}> + </span>
+            Assistência Técnica, Cursos, Marketing Digital, Desenvolvimento Web
+            e muito <span style={{ color: "var(--color-danger)" }}> + </span>
           </h2>
           <div className="callToAction">
             <ScrollLink
@@ -105,7 +105,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
             <div className="card">
               <div className="face face1">
                 <div className="content">
