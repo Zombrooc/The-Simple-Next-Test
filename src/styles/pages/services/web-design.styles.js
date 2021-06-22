@@ -1,6 +1,20 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import htmlScreen from "../../../assets/images/html_screen.png";
+
+const animateArrow = keyframes`
+  0%{
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px,-20px);
+  }
+  50%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+    transform: rotate(45deg) translate(20px,20px);
+  }
+`;
 
 export const Container = styled.div`
   min-height: 100%;
@@ -12,8 +26,9 @@ export const Container = styled.div`
   background-attachment: fixed;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  flex-direction: column;
   /* background: rgba(40, 42, 54, 0.5); */
   color: var(--color-light);
 
@@ -24,11 +39,11 @@ export const Container = styled.div`
     text-align: center;
 
     h2.text {
-      font-size: 47px;
+      font-size: 40px;
     }
 
     .text {
-      font-size: 60px;
+      font-size: 54px;
       font-weight: 600;
     }
 
@@ -61,5 +76,31 @@ export const Container = styled.div`
     transform: translateY(-40px);
     opacity: 0;
     pointer-events: none;
+  }
+
+  .arrow {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+
+    span {
+      display: block;
+      width: 30px;
+      height: 30px;
+      border-bottom: 5px solid var(--color-info);
+      border-right: 5px solid var(--color-info);
+      transform: rotate(45deg);
+      margin: -10px;
+      animation: ${animateArrow} 2s infinite;
+
+      &:nth-child(2) {
+        animation-delay: -0.2s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: -0.4s;
+      }
+    }
   }
 `;

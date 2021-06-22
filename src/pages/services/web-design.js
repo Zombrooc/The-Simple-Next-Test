@@ -11,31 +11,39 @@ function web_design() {
     <>
       <Head>
         <title> Web Design </title>
+
+        <meta
+          name="keywords"
+          content="web designer web designer freelancer web design responsivo web design agency web design agencia a web designers website a web designing company web design brasil web design e design gráfico web design empresa web design ecommerce"
+        />
       </Head>
 
       <Navbar />
 
       <Container>
-        <div>
-          <div className="heading">
-            <h1 className="text">Impusione seu negócio no mundo digital</h1>
-            <hr
-              style={{ width: "90%", marginTop: "15px", marginBottom: "15px" }}
-            />
-            <h2 className="text"> Criação de sites </h2>
+        <div className="heading">
+          <h1 className="text">Impusione seu negócio no mundo digital</h1>
+          <hr
+            style={{ width: "90%", marginTop: "15px", marginBottom: "15px" }}
+          />
+          <h2 className="text"> Criação de sites </h2>
 
-            <div className="wrapper" style={{ display: "flex" }}>
-              <div className="offset">
-                <h2 className="text animate-before">MODERNOS</h2>
-              </div>
-              <div className="offset">
-                <h2 className="text animate-before">RÁPIDOS</h2>
-              </div>
-              <div className="offset">
-                <h2 className="text animate-before">RESPONSIVOS</h2>
-              </div>
+          <div className="wrapper" style={{ display: "flex" }}>
+            <div className="offset">
+              <h2 className="text animate-before">MODERNOS</h2>
+            </div>
+            <div className="offset">
+              <h2 className="text animate-before">RÁPIDOS</h2>
+            </div>
+            <div className="offset">
+              <h2 className="text animate-before">RESPONSIVOS</h2>
             </div>
           </div>
+        </div>
+        <div className="arrow">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
       </Container>
 

@@ -120,9 +120,9 @@ export default function Home() {
                     performáticos e dinâmicos para que você e sua empresa possam
                     ganhar mais espaço na internet.
                   </p>
-                  <a href="https://wa.me/p/3570230293095834/553588777750">
-                    Faça seu orçamento
-                  </a>
+                  <Link href="/services/web-design">
+                    <a> Conhecer serviço </a>
+                    </Link>
                 </div>
               </div>
             </div>
