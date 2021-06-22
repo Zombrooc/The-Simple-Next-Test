@@ -22,21 +22,27 @@ function web_design() {
 
       <Container>
         <div className="heading">
-          <h1 className="text">Impusione seu negócio no mundo digital</h1>
-          <hr
-            style={{ width: "90%", marginTop: "15px", marginBottom: "15px" }}
-          />
-          <h2 className="text"> Criação de sites </h2>
+          <h1 className="text">
+            Seu negócio
+            <br />
+            com um nova cara na internet.
+          </h1>
+          <h2 className="text"> Novos clientes para que você possa crescer</h2>
+          <br/>
+          <h2 className="text"> Seu site </h2>
 
           <div className="wrapper" style={{ display: "flex" }}>
             <div className="offset">
-              <h2 className="text animate-before">MODERNOS</h2>
+              <h2 className="text animate-before">MODERNO</h2>
             </div>
             <div className="offset">
-              <h2 className="text animate-before">RÁPIDOS</h2>
+              <h2 className="text animate-before">RÁPIDO</h2>
             </div>
             <div className="offset">
-              <h2 className="text animate-before">RESPONSIVOS</h2>
+              <h2 className="text animate-before">RESPONSIVO</h2>
+            </div>
+            <div className="offset">
+              <h2 className="text animate-before">ACESSIVEL</h2>
             </div>
           </div>
         </div>

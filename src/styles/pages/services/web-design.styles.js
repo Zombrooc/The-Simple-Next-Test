@@ -59,7 +59,7 @@ export const Container = styled.div`
 
       .text {
         white-space: nowrap;
-        color: var(--color-danger);
+        color: var(--color-info);
 
         transition-duration: 1s;
       }
