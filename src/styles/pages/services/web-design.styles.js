@@ -66,7 +66,7 @@ export const Container = styled.div`
 
       .text {
         white-space: nowrap;
-        color: var(--color-info);
+        color: var(--color-danger);
 
         transition-duration: 1s;
       }

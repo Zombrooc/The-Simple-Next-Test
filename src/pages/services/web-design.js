@@ -22,6 +22,7 @@ function web_design() {
 
       <Container>
         <div className="heading">
+<<<<<<< HEAD
           <h1 className="text" style={{ lineHeight: "1.2" }}>
             <strong>
               A solução em marketing
@@ -60,6 +61,24 @@ function web_design() {
                 <h2 className="text animate-before">ACESSIVEL</h2>
               </div>
             </div> */}
+=======
+          <h1 className="text">Impusione seu negócio no mundo digital</h1>
+          <hr
+            style={{ width: "90%", marginTop: "15px", marginBottom: "15px" }}
+          />
+          <h2 className="text"> Criação de sites </h2>
+
+          <div className="wrapper" style={{ display: "flex" }}>
+            <div className="offset">
+              <h2 className="text animate-before">MODERNOS</h2>
+            </div>
+            <div className="offset">
+              <h2 className="text animate-before">RÁPIDOS</h2>
+            </div>
+            <div className="offset">
+              <h2 className="text animate-before">RESPONSIVOS</h2>
+            </div>
+>>>>>>> parent of 6350181 (aaaa)
           </div>
         </div>
         <div className="arrow">
