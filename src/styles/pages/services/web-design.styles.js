@@ -26,35 +26,42 @@ export const Container = styled.div`
   background-attachment: fixed;
 
   display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  padding-left: 20%;
+  padding-right: 20%;
+
+  /* display: flex;
   justify-content: space-evenly;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; */
   /* background: rgba(40, 42, 54, 0.5); */
   color: var(--color-light);
 
   .heading {
-    display: flex;
+    /* display: flex;
     flex-direction: column;
     align-items: center;
-    text-align: center;
-
-    h2.text {
-      font-size: 40px;
-    }
-
+    text-align: center; */
     .text {
       font-size: 54px;
       font-weight: 600;
     }
+
+    h2.text {
+      font-size: 30px;
+    }
+
 
     .wrapper {
       position: relative;
 
       .offset {
         position: absolute;
-        top: 0;
+        /* top: 0;
         left: 0;
-        transform: translateX(-50%);
+        transform: translateX(-50%); */
       }
 
       .text {
@@ -83,6 +90,8 @@ export const Container = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); */
+    margin: 0 auto;
+    margin-top: 25px;
 
     span {
       display: block;

@@ -22,28 +22,44 @@ function web_design() {
 
       <Container>
         <div className="heading">
-          <h1 className="text">
-            Seu negócio
-            <br />
-            com um nova cara na internet.
+          <h1 className="text" style={{ lineHeight: "1.2" }}>
+            <strong>
+              A solução em marketing
+              <br />
+              que você precisa.
+            </strong>
           </h1>
-          <h2 className="text"> Novos clientes para que você possa crescer</h2>
-          <br/>
-          <h2 className="text"> Seu site </h2>
-
-          <div className="wrapper" style={{ display: "flex" }}>
-            <div className="offset">
-              <h2 className="text animate-before">MODERNO</h2>
-            </div>
-            <div className="offset">
-              <h2 className="text animate-before">RÁPIDO</h2>
-            </div>
-            <div className="offset">
-              <h2 className="text animate-before">RESPONSIVO</h2>
-            </div>
-            <div className="offset">
-              <h2 className="text animate-before">ACESSIVEL</h2>
-            </div>
+          <br />
+          <h2 className="text" style={{ lineHeight: "1.2" }}>
+            {" "}
+            Marketing especializado para que sua empresa cresça no mercado
+            digital, conectando você ao seus clientes.
+          </h2>
+          <br />
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              margin: "0 auto",
+            }}
+          >
+            {/* <h2 className="text"> Seu site </h2>
+            <div className="wrapper">
+              <div className="offset">
+                <h2 className="text animate-before">MODERNO</h2>
+              </div>
+              <div className="offset">
+                <h2 className="text animate-before">RÁPIDO</h2>
+              </div>
+              <div className="offset">
+                <h2 className="text animate-before">RESPONSIVO</h2>
+              </div>
+              <div className="offset">
+                <h2 className="text animate-before">ACESSIVEL</h2>
+              </div>
+            </div> */}
           </div>
         </div>
         <div className="arrow">
@@ -53,7 +69,7 @@ function web_design() {
         </div>
       </Container>
 
-      <script
+      {/* <script
         dangerouslySetInnerHTML={{
           __html: `
               const headings = document.querySelectorAll(".heading .wrapper .text");
@@ -97,7 +113,7 @@ function web_design() {
               
                   `,
         }}
-      ></script>
+      ></script> */}
       <Footer />
     </>
   );
