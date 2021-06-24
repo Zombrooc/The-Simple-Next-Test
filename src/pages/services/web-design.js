@@ -17,52 +17,12 @@ function web_design() {
           content="web designer web designer freelancer web design responsivo web design agency web design agencia a web designers website a web designing company web design brasil web design e design gráfico web design empresa web design ecommerce"
         />
       </Head>
-
       <Navbar />
-
       <Container>
         <div className="heading">
-<<<<<<< HEAD
-          <h1 className="text" style={{ lineHeight: "1.2" }}>
-            <strong>
-              A solução em marketing
-              <br />
-              que você precisa.
-            </strong>
+          <h1 className="text" style={{ lineHeight: "1", }}>
+            Impusione seu negócio no mundo digital
           </h1>
-          <br />
-          <h2 className="text" style={{ lineHeight: "1.2" }}>
-            {" "}
-            Marketing especializado para que sua empresa cresça no mercado
-            digital, conectando você ao seus clientes.
-          </h2>
-          <br />
-          <div
-            style={{
-              width: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              margin: "0 auto",
-            }}
-          >
-            {/* <h2 className="text"> Seu site </h2>
-            <div className="wrapper">
-              <div className="offset">
-                <h2 className="text animate-before">MODERNO</h2>
-              </div>
-              <div className="offset">
-                <h2 className="text animate-before">RÁPIDO</h2>
-              </div>
-              <div className="offset">
-                <h2 className="text animate-before">RESPONSIVO</h2>
-              </div>
-              <div className="offset">
-                <h2 className="text animate-before">ACESSIVEL</h2>
-              </div>
-            </div> */}
-=======
-          <h1 className="text">Impusione seu negócio no mundo digital</h1>
           <hr
             style={{ width: "90%", marginTop: "15px", marginBottom: "15px" }}
           />
@@ -78,7 +38,6 @@ function web_design() {
             <div className="offset">
               <h2 className="text animate-before">RESPONSIVOS</h2>
             </div>
->>>>>>> parent of 6350181 (aaaa)
           </div>
         </div>
         <div className="arrow">
@@ -88,7 +47,7 @@ function web_design() {
         </div>
       </Container>
 
-      {/* <script
+      <script
         dangerouslySetInnerHTML={{
           __html: `
               const headings = document.querySelectorAll(".heading .wrapper .text");
@@ -129,10 +88,9 @@ function web_design() {
                 timePerScreen: 2000, // ms
                 exitDelay: 200 * 7, // ms
               });
-              
                   `,
         }}
-      ></script> */}
+      ></script>
       <Footer />
     </>
   );
